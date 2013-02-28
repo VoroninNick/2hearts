@@ -9,6 +9,7 @@ gem 'russian'
 gem 'paperclip'
 gem 'yaml_db'
 gem 'turbolinks'
+gem 'ckeditor'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

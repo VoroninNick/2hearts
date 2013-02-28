@@ -59,6 +59,9 @@ GEM
       sass (~> 3.2)
     builder (3.0.4)
     chunky_png (1.2.7)
+    ckeditor (4.0.2)
+      mime-types
+      orm_adapter
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -206,6 +209,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  ckeditor
   coffee-rails (~> 3.2.1)
   dalli
   devise
