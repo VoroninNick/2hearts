@@ -13,9 +13,9 @@ class Service < ActiveRecord::Base
   validates :description, :presence => true, :length => { :minimum => 2 }
 
   # Paperclip image attachments
-  has_attached_file :avatar, :styles => { :thumb => '150x150>' },
-                    :url    => '/assets/service/:id/:style/:basename.:extension',
-                    :path   => ':rails_root/public/assets/service/:id/:style/:basename.:extension'
+  has_attached_file :avatar, :styles => { :thumb => '150x150>' } #,
+                    #:url    => '/assets/service/:id/:style/:basename.:extension',
+                    #:path   => ':rails_root/public/assets/service/:id/:style/:basename.:extension'
 
   has_many :assets, :as => :assetable, :dependent => :destroy
   accepts_nested_attributes_for :assets
@@ -24,9 +24,9 @@ class Service < ActiveRecord::Base
   belongs_to :sub_category
 
   # Validate banner presence
-  validates_attachment_presence :avatar
-  validates_attachment_size :avatar, :less_than => 2.megabytes
-  validates_attachment_content_type :avatar, :content_type => %w{'image/jpeg' 'image/png'}
+  # validates_attachment_presence :avatar
+  # validates_attachment_size :avatar, :less_than => 2.megabytes
+  # validates_attachment_content_type :avatar, :content_type => %w{'image/jpeg' 'image/png'}
 
   def to_param
     slug
