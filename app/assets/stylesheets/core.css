@@ -1,0 +1,392 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,cyrillic);
+
+
+.os{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+.txt-center{
+	text-align: center;
+}
+
+.text-right{
+	text-align: right;
+}
+
+.pk{
+	color: #d0005d;
+}
+
+.tel{
+	font-size: 21px;
+}
+
+.push-down-sep{
+	margin-top: 30px;
+}
+
+html, body, #wrap { height: 100%; }
+body > #wrap {height: auto; min-height: 100%;}
+#wraper-body{ padding-bottom: 380px; }
+body{
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-style: normal;
+  font-weight: normal;
+  min-width: 800px !important;
+  /*letter-spacing: 1px*/
+}
+
+.parallax-viewport {
+    position: relative;     /* relative, absolute, fixed */
+    overflow: hidden;
+}
+.parallax-layer {
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+}
+
+#paralax{
+  height:511px;
+  position: relative;
+  
+}
+
+#paralax img{
+	max-width: none;
+}
+
+.main-video-frame{
+  margin: 30px 20px 20px 20px;
+}
+
+.padding{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5{
+  color: #d0005d;
+  padding-bottom: 10px;
+  text-shadow: rgba(255, 255, 255, 0.7) 1px 1px;
+}
+
+h2{
+  font-size: 24px;
+}
+
+h1{
+  font-size: 60px;
+  line-height: 100px;
+}
+
+p{
+  color: #6d6e71;
+}
+
+::selection{
+  background: #d0005d;
+  color: white;
+  text-shadow: none;
+}
+
+
+#header{
+  margin-top: -76px;
+}
+
+#top-bg{
+  background: url("header_bg.png") repeat-x;
+  height: 76px;
+}
+/* Folding Media */
+#logo{
+    width: 300px;
+}
+
+#nav{
+    width: 620px;
+}
+
+.proverbs-folding{
+    width: 286px;
+}
+
+.main-video-frame{
+    width: 860px;
+}
+
+.video-text-folding{
+    margin-left: 60px;
+    width: 810px;
+    text-align: center;
+    margin-right: 60px;
+}
+.foot-h2to-hide{
+    display: none;
+}
+
+/* NAVIGATION STYLES */
+#nav ul{
+  list-style: none;
+  float: right;
+}
+
+#nav ul li{
+  display: block;
+  float: left;
+  margin-right: 20px;
+  font-size: 18px;
+  line-height: 71px;
+  text-transform: uppercase;
+  padding-right: 18px;
+  padding-left: 18px;
+}
+
+#nav ul li:last-child{
+  margin-right: 0px;
+}
+
+#nav ul li a{
+  color: #6f6f6f;
+}
+
+#nav ul li a:hover{
+  color: #6f6f6f;
+}
+
+#nav ul li a:active{
+  color: #6f6f6f;
+}
+
+#nav ul li a:visited{
+  color: #6f6f6f;
+}
+
+.act-section{
+  background: url("menu_act.png") no-repeat;
+  padding-bottom: 36px;
+}
+
+.act-section a{
+  color: white !important;
+}
+
+/* banners */
+#banners{
+	display: block;
+	overflow-x: hidden;
+  margin-top: -40px;
+}
+
+#paralax{
+  /*margin-top: -42px;*/
+}
+
+#img-fix{
+  position: relative;
+  z-index: -1;
+}
+
+.small-banner{
+  display: none;
+}
+
+/* main content bg */
+#wrap-bg{
+  /*background: url('../img/main-content-bg.png') repeat;*/
+  background-color: #feeef5;
+}
+#wrap-bg-top{
+  background: url("main-content-top-bg.png") repeat;
+  height: 16px;
+  top: -16px;
+  position: relative;
+}
+#wrap-bg-bottom{
+  background: url("main-content-bottom-bg.png") repeat;
+  z-index: 99;
+  height: 15px;
+  top: 8px;
+  position: relative;
+}
+
+
+/* content */
+#content{
+  background: url("section_bg.png") repeat;
+  border: 6px solid white;
+  margin-top: -178px;
+  position: relative;
+  padding-bottom: 30px;
+  z-index: 100;
+  bottom: -80px;
+  box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, .35);
+}
+
+#proverbs{
+  padding-top: 30px;
+  padding-bottom: 70px;
+}
+
+.h2-heart{
+  float: left;
+  margin-right: 15px;
+}
+
+.info-text{
+  font-size: 15px;
+  line-height: 21px;
+}
+
+#video{
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,.3);
+  -moz-box-shadow: inset 1px 1px 2px rgba(0,0,0,.3);
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,.3);
+  background: url("video_bg.png") repeat transparent;
+}
+
+.video-text{
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.video-info-block{
+  padding-bottom: 40px;
+  padding-left: 20px;
+}
+
+#video-section{
+  padding-top: 25px;
+}
+
+#separator-top{
+  padding-top: 80px;
+}
+
+#separator-bottom{
+  padding-top: 130px;
+}
+
+.sep-line{
+  background: url("sep-center.png") repeat-x;
+}
+
+.feedback-img{
+  float: left;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  background-color: #f6f6f6;
+  -webkit-box-shadow: 6px 10px 22px rgba(2,2,2,.22);
+  -moz-box-shadow: 6px 10px 22px rgba(2,2,2,.22);
+  box-shadow: 6px 10px 22px rgba(2,2,2,.22);
+  margin-right: 15px;
+  background: url("hear_sign_img.png") no-repeat 0px 0px;
+}
+
+.feedback-img-sign{
+  /*background: url('../img/hear_sign_img.png') no-repeat 0px 0px;*/
+  float: left;
+  height: 154px;
+  margin-right: 20px;
+}
+
+.img-sign{
+  margin-top: 100px;
+  margin-left: -76px;
+}
+
+.wedding-feedback-container{
+  margin-top: 60px;
+}
+
+.author{
+  text-align: right;
+  color: #a28b5d;
+  font-size: 17px;
+  font-style: italic;
+}
+
+
+
+#back_top{
+	background: url("back_top.png") no-repeat transparent;
+	width: 61px;
+	height: 70px;
+	position: relative;
+	line-height: 70px;
+	vertical-align: text-top;
+	display: inline-block;
+	float: right;
+	top: 63px;
+	cursor: pointer;
+}
+
+.main-footer-area{
+  padding-top: 95px;
+}
+
+#footer{
+  background: url("footer_bg.png") repeat;
+  position: relative;
+  margin-top: -380px; /* negative value of footer height */
+  height: 380px;
+  clear:both;
+}
+
+#sep-footer{
+    padding-top: 30px;
+}
+
+#sub-footer{
+    padding-top: 15px;
+    color: #cacaca;
+}
+
+#sub-footer a,
+#sub-footer a:hover,
+#sub-footer a:active,
+#sub-footer a:visited{
+    color: #cacaca !important;
+}
+
+ul.footer-menu{
+    list-style: none;
+    float: right;
+}
+
+ul.footer-menu li{
+    display: block;
+    float: left;
+    margin-right: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+ul.footer-menu li:last-child{
+    margin-right: 0;
+}
+
+ul.footer-menu li a.last-child{
+    border-right: 0;
+    padding-right: 0;
+}
+
+ul.footer-menu li a{
+    border-right: 1px solid;
+    padding-right: 5px;
+    color: #cacaca;
+}
+
+ul.footer-menu li a:hover,
+ul.footer-menu li a:active,
+ul.footer-menu li a:visited{
+    color: #cacaca !important;
+}

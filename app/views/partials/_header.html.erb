@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="uk-UA">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+  <meta name="studio" content="Дизайн студія Миколи Вороніна">
+  <meta name="art-director" content="Микола Воронін">
+  <meta name="web-developer" content="Калантаєвській Віктор">
+  <%= yield :html_head %>
+  <%= csrf_meta_tags %>
+</head>
+<body <%= request.env['HTTP_CACHE_CONTROL'] %> data="<%= request.env['HTTP_ACCEPT_ENCODING'] %>">
+<div id="wraper-body">

@@ -1,33 +1,51 @@
-<h1>Listing services</h1>
+<style type="text/css">
+  .service h1{
+    font-weight: lighter;
+    font-family: Georgia;
+  }
+    .service h2{
+      font-weight: lighter;
+      color: #646464;
+      font-family: Georgia;
+      border-bottom: 1px dashed #dcdadb;
+      border-top: 1px dashed #dcdadb;
+      padding-top: 10px;
+    }
+    .service p{
+      color: #6c6d71;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .service .row{
+      margin-left: -15px;
+    }
+    .service img{
+      border: 8px solid #e7e6e2;
+      -moz-box-shadow: 0 0 7px rgba(2,2,2,.22);
+      -webkit-box-shadow: 0 0 7px rgba(2,2,2,.22);
+      box-shadow: 0 0 7px rgba(2,2,2,.22);
+    }
+</style>
+<div id="wrap-bg" style="margin-top: 100px;">
+  <div id="wrap-bg-top"></div>
+    <div id="content" class="container service">
+      <div class="row">
+        <div class="span12">
+          <h1>ПОСЛУГИ</h1>
+          <h2>ВЕСІЛЬНИЙ КООРДИНАТОР</h2>
+        </div>
+        <div class="span4">&nbsp;</div>
+        <div class="span8" style="margin-top: 100px;">
+          <%= image_tag('2h-next-services-v1-1_03.jpg', :style => "margin-bottom: 50px;") %>
+          <p>
+            Перш за все, наша компанія — це творчий і дружній колектив креативних, швидких та підготованих працівників, які виконують свою роботу оперативно і якісно.
+            Злагоджена команда компанії «Два серця» має відмінну репутацію у проведенні урочистих заходів та концертно-гастрольної діяльності, а принцип роботи компанії - це індивідуальний та нестандартний підхід до кожного клієнта, творча робота в колективі, високий професіоналізм та якість послуг, що надаються.
+            Дружня команда креативних фахівців компанії «Два серця» підготує та проведе будь-який урочистий захід від початку і до кінця. Працюючи з нами, Ви отримаєте море задоволень, свято у відмінній компанії і незабутні враження на все життя!
+            Головне в нашій роботі — це якість, оригінальність та творчий підхід до всього.
+          </p>
+        </div>
+      </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Avatar file name</th>
-    <th>Avatar content type</th>
-    <th>Avatar file size</th>
-    <th>Avatar updated at</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @services.each do |service| %>
-  <tr>
-    <td><%= service.name %></td>
-    <td><%= service.description %></td>
-    <td><%= service.avatar_file_name %></td>
-    <td><%= service.avatar_content_type %></td>
-    <td><%= service.avatar_file_size %></td>
-    <td><%= service.avatar_updated_at %></td>
-    <td><%= link_to 'Show', service %></td>
-    <td><%= link_to 'Edit', edit_service_path(service) %></td>
-    <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Service', new_service_path %>
+    </div><!-- content -->
+  <div id="wrap-bg-bottom"></div>
+</div><!-- wrap bg -->

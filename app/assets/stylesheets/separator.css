@@ -1,0 +1,16 @@
+.sep-left-flower{
+	width: 23px !important;
+}
+.sep-center-img{
+	width: 260px;
+	margin-top: -10px;
+}
+
+.sep-center-img img{
+	float: left;
+}
+
+.sep-line{
+	width: 277px;
+}
+

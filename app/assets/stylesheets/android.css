@@ -1,0 +1,208 @@
+/* Samsung GALAXY Tab -------- */
+@media (max-device-width: 1024px) and (orientation: landscape){
+
+.row {
+  margin-left: -20px;
+  *zoom: 1;
+}
+.row:before,
+.row:after {
+  display: table;
+  content: "";
+}
+.row:after {
+  clear: both;
+}
+[class*="span"] {
+  float: left;
+  margin-left: 20px;
+}
+.container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 980px;
+}
+.span12 {
+  width: 940px;
+}
+.span11 {
+  width: 860px;
+}
+.span10 {
+  width: 780px;
+}
+.span9 {
+  width: 700px;
+}
+.span8 {
+  width: 620px;
+}
+.span7 {
+  width: 540px;
+}
+.span6 {
+  width: 460px;
+}
+.span5 {
+  width: 380px;
+}
+.span4 {
+  width: 300px;
+}
+.span3 {
+  width: 220px;
+}
+.span2 {
+  width: 140px;
+}
+.span1 {
+  width: 60px;
+}
+
+}
+
+
+@media (min-device-width: 800px) and (orientation: portrait) {
+
+body{
+      
+    }
+    .info-text{
+    	font-size: 19px !important;
+    }
+    .video-text{
+    	font-size: 22px !important;
+    }
+    .video-text-folding{
+    	width: 724px !important;
+    	margin-left: 10px !important;
+    	margin-right: 10px !important;
+    }
+    /* Folding Options */
+    .proverbs-folding {
+        text-align: center !important;
+        width: 724px !important;
+    }
+    .main-video-frame {
+        width: 685px !important;
+    }
+    .video-text-folding {
+        width: 625px !important;
+    }
+    .wedding-feedback-container {
+        width: 724px !important;
+    }
+    .foot-h2to-hide{
+        display: block !important;
+    }
+    .foot-main-h2{
+        display: none !important;
+    }
+    .h2-heart{
+      float: none !important;
+    }
+
+    #nav{
+      width: 724px !important;
+    }
+
+    #logo{
+      display: none !important;
+    }
+
+    ul.footer-menu li{
+      font-size: 10px !important;
+    }
+    .video-section-frame iframe{
+      width: 708px !important;
+      height: 405px !important;
+    }
+    .make-full-width{
+      width: 720px !important;
+      padding-bottom: 60px;
+    }
+    .sep-line {
+      width: 169px !important;
+    }
+    .small-banner{
+      display: block !important;
+      height: 470px;
+    }
+    #paralax{
+      display: none !important;
+    }
+    #nav ul li{
+      margin-right: 50px !important;
+    }
+    .proverbs-folding{
+      padding-bottom: 30px !important;
+    }
+    .main-footer-area div,
+    #sub-footer div{
+    	width: 724px !important;
+    }
+
+    .small-banner div div img{
+    	margin-left: -120px !important;
+    }
+
+   .row {
+    margin-left: 50px !important;
+    *zoom: 1;
+  }
+  .row:before,
+  .row:after {
+    display: table;
+    content: "";
+  }
+  .row:after {
+    clear: both;
+  }
+  [class*="span"] {
+    float: left;
+    margin-left: 50px !important;
+  }
+  .container,
+  .navbar-fixed-top .container,
+  .navbar-fixed-bottom .container {
+    width: 764px;
+  }
+  .span12 {
+    width: 764px;
+  }
+  .span11 {
+    width: 662px;
+  }
+  .span10 {
+    width: 600px;
+  }
+  .span9 {
+    width: 538px;
+  }
+  .span8 {
+    width: 476px;
+  }
+  .span7 {
+    width: 414px;
+  }
+  .span6 {
+    width: 352px;
+  }
+  .span5 {
+    width: 290px;
+  }
+  .span4 {
+    width: 228px;
+  }
+  .span3 {
+    width: 166px;
+  }
+  .span2 {
+    width: 104px;
+  }
+  .span1 {
+    width: 42px;
+  }
+
+}
+

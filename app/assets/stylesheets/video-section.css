@@ -1,0 +1,19 @@
+.make-full-width{
+	width: 460px;
+	padding-bottom: 60px;
+}
+
+.make-full-width p{
+	font-style: italic;
+	padding-top: 15px;
+}
+
+.video-section-frame{
+	border: 1px solid #DDD;
+}
+
+.video-section-frame iframe{
+	width: 448px;
+	height: 259px;
+	padding: 5px 5px 1px 5px;
+}
