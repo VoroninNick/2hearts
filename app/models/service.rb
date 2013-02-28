@@ -1,5 +1,5 @@
 class Service < ActiveRecord::Base
-  attr_accessible :avatar, :description, :name
+  attr_accessible :avatar, :description, :name, :assets_attributes
 
   validates :name, presence: true
   validates :slug, uniqueness: true, presence: true
