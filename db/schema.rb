@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228140525) do
+ActiveRecord::Schema.define(:version => 20130228150029) do
 
   create_table "assets", :force => true do |t|
     t.integer  "assetable_id"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20130228140525) do
     t.datetime "attachment_updated_at"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -63,9 +70,22 @@ ActiveRecord::Schema.define(:version => 20130228140525) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "slug"
+    t.integer  "category_id"
+    t.integer  "sub_category_id"
   end
 
   add_index "services", ["slug"], :name => "index_services_on_slug"
+
+  create_table "sub_categories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "category_id"
+    t.string   "slug"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "sub_categories", ["slug"], :name => "index_sub_categories_on_slug"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

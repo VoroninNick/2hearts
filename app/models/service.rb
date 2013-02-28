@@ -1,5 +1,5 @@
 class Service < ActiveRecord::Base
-  attr_accessible :avatar, :description, :name, :assets_attributes
+  attr_accessible :avatar, :description, :name, :assets_attributes, :sub_category_id, :category_id
 
   validates :name, presence: true
   validates :slug, uniqueness: true, presence: true
@@ -19,6 +19,9 @@ class Service < ActiveRecord::Base
 
   has_many :assets, :as => :assetable, :dependent => :destroy
   accepts_nested_attributes_for :assets
+
+  belongs_to :category
+  belongs_to :sub_category
 
   # Validate banner presence
   validates_attachment_presence :avatar
