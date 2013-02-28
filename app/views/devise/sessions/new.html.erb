@@ -1,20 +1,26 @@
 <div id="wrap-bg">
   <div id="wrap-bg-top"></div>
   <div id="content" class="container">
-<h2>Sign in</h2>
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+    <div class="row">
+      <div class="span2">&nbsp;</div>
+      <div class="span8">
+        <h2>Sign in</h2>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <div><%= f.label :email %><br />
+            <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+          <div><%= f.label :password %><br />
+            <%= f.password_field :password %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+          <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+          <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+          <div><%= f.submit "Sign in" %></div>
+        <% end %>
+      </div>
+      <div class="span2">&nbsp;</div>
+    </div>
   </div><!-- content -->
   <div id="wrap-bg-bottom"></div>
 </div><!-- wrap bg -->
