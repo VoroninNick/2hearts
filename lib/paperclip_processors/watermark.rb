@@ -1,4 +1,11 @@
-# from http://github.com/ng/paperclip-watermarking-app with modifications
+# from http://github.com/ng/paperclip-watermarking-app 
+# with modifications from http://exviva.posterous.com/watermarking-images-with-rails-3-and-papercli
+# and even more modifications to ensure works with paperclip 2.3.8 and rails 3.0.3
+#
+# Note: In rails 3 paperclip processors are not automatically loaded.
+# You must add the following above your model class definition: 
+#
+# require 'paperclip_processors/watermark'
 
 module Paperclip
   class Watermark < Processor
@@ -7,7 +14,7 @@ module Paperclip
 
     def initialize file, options = {}, attachment = nil
       super
-      @geometry          = options[:geometry]
+      geometry          = options[:geometry]
       @file             = file
       @crop             = geometry[-1,1] == '#'
       @target_geometry  = Geometry.parse geometry
@@ -40,22 +47,25 @@ module Paperclip
       dst = Tempfile.new([@basename, @format].compact.join("."))
       dst.binmode
 
-      if watermark_path
-        command = "composite"
-        params = %W[-gravity #{@position} #{watermark_path} #{fromfile}]
-        params += transformation_command
-        params << tofile(dst)
-      else
-        command = "convert"
-        params = [fromfile]
-        params += transformation_command
-        params << tofile(dst)
+      command = "convert"
+      params = [fromfile]
+      params += transformation_command
+      params << tofile(dst)
+      begin
+        success = Paperclip.run(command, params.flatten.compact.collect{|e| "'#{e}'"}.join(" "))
+      rescue Paperclip::Errors::CommandNotFoundError
+        raise Paperclip::Errors::CommandNotFoundError, "There was an error resizing and cropping #{@basename}" if @whiny
       end
 
-      begin
-        success = Paperclip.run(command, *params)
-      rescue Paperclip::Errors::CommandNotFoundError
-        raise Paperclip::Errors::CommandNotFoundError, "There was an error processing the watermark for #{@basename}" if @whiny
+      if watermark_path
+        command = "composite"
+        params = %W[-gravity #{@position} #{watermark_path} #{tofile(dst)}]
+        params << tofile(dst)
+        begin
+          success = Paperclip.run(command, params.flatten.compact.collect{|e| "'#{e}'"}.join(" "))
+        rescue Paperclip::Errors::CommandNotFoundError
+          raise Paperclip::Errors::CommandNotFoundError, "There was an error processing the watermark for #{@basename}" if @whiny
+        end
       end
 
       dst
