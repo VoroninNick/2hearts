@@ -2,18 +2,14 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @services }
-    end
+    @services ||= Service.all
+    @render_catalog ||= Category.all
   end
 
   # GET /services/1
   # GET /services/1.json
   def show
-    @service = Service.find(params[:id])
+    @service = Service.find_by_slug!(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
