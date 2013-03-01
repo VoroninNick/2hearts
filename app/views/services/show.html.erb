@@ -49,6 +49,10 @@
     font-weight: lighter;
     color: #646464;
   }
+
+    .gallery-wrapper-item h2{
+      color: #d0005d;
+    }
 </style>
 <div id="wrap-bg" style="margin-top: 100px;">
   <div id="wrap-bg-top"></div>
@@ -95,6 +99,17 @@
         <div class="os_safe">
           <%= @service.description.html_safe %>
         </div>
+        <% if @service.assets.present? %>
+          <div class="gallery-wrapper-item">
+            <h2>Галерея</h2>
+            <% @service.assets.each do |a| %>
+              <%= image_tag(a.url(:main)) %>
+            <% end %>
+          </div>
+
+        <% end %>
+
+
       </div>
     </div>
 
