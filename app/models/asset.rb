@@ -8,8 +8,8 @@ class Asset < ActiveRecord::Base
 
   # Paperclip image attachments
   has_attached_file :attachment, :processors => [:watermark], :styles => { :thumb => '150x150>',
-                                                                           :main => { :geometry => "1440x900#", :watermark_path => Rails.root + "/public/images/logo.png", :position => "East" },
-                                                                           :medium => { :geometry => "800x600#", :watermark_path => Rails.root + "/public/images/logo.png", :position => "East" }
+                                                                           :main => { :geometry => "1440x900#", :watermark_path => Rails.root + "/images/logo.png", :position => "East" },
+                                                                           :medium => { :geometry => "800x600#", :watermark_path => Rails.root + "/images/logo.png", :position => "East" }
   },
                     :url    => '/assets/attachment/:id/:style/:basename.:extension',
                     :path   => ':rails_root/public/assets/attachment/:id/:style/:basename.:extension'
