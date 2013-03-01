@@ -92,9 +92,9 @@
       <div class="span4">&nbsp;</div>
       <div class="span8" style="margin-top: 100px;">
         <%= image_tag(@service.avatar.url(:thumb), :style => "margin-bottom: 50px;") %>
-        <p class="os">
+        <div class="os_safe">
           <%= @service.description.html_safe %>
-        </p>
+        </div>
       </div>
     </div>
 
