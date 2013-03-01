@@ -103,7 +103,7 @@
           <div class="gallery-wrapper-item">
             <h2>Галерея</h2>
             <% @service.assets.each do |a| %>
-              <%= image_tag(a.url(:main)) %>
+              <%= image_tag(a.attachment.url(:main)) %>
             <% end %>
           </div>
 
