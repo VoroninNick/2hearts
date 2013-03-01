@@ -7,12 +7,7 @@ class Asset < ActiveRecord::Base
   before_validation { self.attachment.clear if self.delete_attachment == '1' }
 
   # Paperclip image attachments
-  has_attached_file :attachment, :styles => { :thumb => '150x150>' },
+  has_attached_file :attachment, :processors => [:watermark], :styles => { :thumb => '150x150>', :main => { :geometry => "1440x900#", :watermark_path => ":rails_root/public/images/watermark.png", :position => "SouthEast" }, :medium => { :geometry => "800x600#", :watermark_path => ":rails_root/public/images/watermark.png", :position => "SouthEast" } },
                     :url    => '/assets/attachment/:id/:style/:basename.:extension',
                     :path   => ':rails_root/public/assets/attachment/:id/:style/:basename.:extension'
-
-  # Validate banner presence
-  validates_attachment_presence :attachment
-  validates_attachment_size :attachment, :less_than => 2.megabytes
-  validates_attachment_content_type :attachment, :content_type => %w{'image/jpeg' 'image/png'}
 end

@@ -7,9 +7,9 @@ gem 'jquery-rails'
 gem 'rails-i18n'
 gem 'russian'
 gem 'paperclip'
-gem 'yaml_db'
 gem 'turbolinks'
 gem 'ckeditor'
+gem 'fancybox-rails', :github => 'vikewoods/fancybox-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -23,6 +23,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'rubyception'
+  gem 'yaml_db'
 end
 
 group :production do

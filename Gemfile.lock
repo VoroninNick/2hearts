@@ -18,6 +18,13 @@ GIT
       safe_yaml (~> 0.6)
       sass-rails (~> 3.1)
 
+GIT
+  remote: git://github.com/vikewoods/fancybox-rails.git
+  revision: 0060b8f8db0bfb46c6c83ab85cba8f9d43bf9d0c
+  specs:
+    fancybox-rails (0.1.5)
+      railties (>= 3.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -213,6 +220,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   dalli
   devise
+  fancybox-rails!
   jquery-rails
   meta_request
   mysql2
