@@ -10,6 +10,7 @@ class ServicesController < ApplicationController
   # GET /services/1.json
   def show
     @service = Service.find_by_slug!(params[:id])
+    @render_catalog ||= Category.all
 
     respond_to do |format|
       format.html # show.html.erb

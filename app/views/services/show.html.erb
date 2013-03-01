@@ -1,35 +1,105 @@
-<p id="notice"><%= notice %></p>
+<style type="text/css">
+  .service h1{
+    font-weight: lighter;
+    font-family: 'Georgia', sans-serif;
+  }
+  .service h2{
+    font-weight: lighter;
+    color: #646464;
+    font-family: 'Georgia', sans-serif;
+    border-bottom: 1px dashed #dcdadb;
+    border-top: 1px dashed #dcdadb;
+    padding-top: 10px;
+  }
+  .service p{
+    color: #6c6d71;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .service .row{
+    margin-left: -15px;
+  }
+  .service img{
+    border: 8px solid #e7e6e2;
+    -moz-box-shadow: 0 0 7px rgba(2,2,2,.22);
+    -webkit-box-shadow: 0 0 7px rgba(2,2,2,.22);
+    box-shadow: 0 0 7px rgba(2,2,2,.22);
+  }
+  .service ul.catalog{
+    list-style: none;
+    margin: 120px 0 0 0;
+    padding: 0;
+  }
 
-<p>
-  <b>Name:</b>
-  <%= @service.name %>
-</p>
+  .service ul.catalog li{
+    line-height: 46px;
+    font-weight: lighter;
+    color: #646464;
+    font-family: 'Georgia', sans-serif;
+    text-decoration: none;
+    font-size: 24px;
+  }
 
-<p>
-  <b>Description:</b>
-  <%= @service.description %>
-</p>
+  .service ul.catalog li ul{
+    list-style: none;
+  }
 
-<p>
-  <b>Avatar file name:</b>
-  <%= @service.avatar_file_name %>
-</p>
+  .service ul.catalog li a, .service ul.catalog li a:hover, .service ul.catalog li a:active{
+    text-decoration: none;
+    font-weight: lighter;
+    color: #646464;
+  }
+</style>
+<div id="wrap-bg" style="margin-top: 100px;">
+  <div id="wrap-bg-top"></div>
+  <div id="content" class="container service">
+    <div class="row">
+      <div class="span4">
+        <ul class="catalog">
+          <% @render_catalog.each do |c| %>
+            <% if c.service.present? %>
+              <% if c.sub_categories.present? %>
+                <li><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %>
+                  <% c.sub_categories.each do |sc| %>
+                    <ul>
+                      <li><%= link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug + '/' + c.service.slug %></li>
+                    </ul>
+                  <% end %>
+                </li>
+              <% else %>
+                <li><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %></li>
+              <% end %>
+            <% else %>
+              <% if c.sub_categories.present? %>
+                <li><%= c.name %>
+                  <% c.sub_categories.each do |sc| %>
+                    <ul>
+                      <li><%= sc.name %></li>
+                    </ul>
+                  <% end %>
+                </li>
+              <% else %>
+                <li><%= c.name %></li>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <div class="span8">
+        <h1>ПОСЛУГИ</h1>
+        <h2><%= @service.name %></h2>
+      </div>
+      <div class="span4">&nbsp;</div>
+      <div class="span8" style="margin-top: 100px;">
+        <%= image_tag(@service.avatar.url(:thumb), :style => "margin-bottom: 50px;") %>
+        <p class="os">
+          <%= @service.description.html_safe %>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <b>Avatar content type:</b>
-  <%= @service.avatar_content_type %>
-</p>
-
-<p>
-  <b>Avatar file size:</b>
-  <%= @service.avatar_file_size %>
-</p>
-
-<p>
-  <b>Avatar updated at:</b>
-  <%= @service.avatar_updated_at %>
-</p>
+  </div><!-- content -->
+  <div id="wrap-bg-bottom"></div>
+</div><!-- wrap bg -->
 
 
-<%#= link_to 'Edit', edit_service_path(@service) %> |
-<%#= link_to 'Back', services_path %>
