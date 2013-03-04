@@ -892,9 +892,11 @@ pre code {
 }
 @media (min-width: 1200px) {
   /* Folding Media */
-    #logo,
+    #logo{
+      width: 370px;
+    }
     #nav{
-        width: 570px !important;
+        width: 876px !important;
     }
     .proverbs-folding{
         width: 370px !important;

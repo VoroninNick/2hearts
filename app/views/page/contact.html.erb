@@ -1,2 +1,130 @@
-<h1>Page#contact</h1>
-<p>Find me in app/views/page/contact.html.erb</p>
+<style type="text/css">
+  .contacts h1{
+    color: #cf005d;
+    font-family: "Georgia", sans-serif;
+    text-shadow: 0 1px 0 #fff;
+    font-weight: lighter;
+  }
+  .contacts h2{
+    font-weight: lighter;
+  }
+  .contacts .row {
+    margin-left: -15px;
+  }
+    .contacts p.phone{
+      font-size: 60px;
+      line-height: 60px;
+      text-shadow: 0 1px 0 #fff;
+      color: #cf005d;
+    }
+    .contacts p.phone span.phone-name{
+      font-size: 50%;
+    }
+    .contacts p.email, .contacts p.address-line{
+      color: #6c6d71;
+      font-size: 24px;
+      line-height: 36px;
+    }
+    .contacts p.email a{
+      text-shadow: 0 1px 0 #fff;
+      color: #cf005d;
+      text-decoration: none;
+    }
+
+    .contacts input, textarea{
+      -moz-border-radius: 0 0 0 379px / 0 0 0 0;
+      -webkit-border-radius: 0 0 0 379px / 0 0 0 0;
+      border-radius: 0 0 0 379px / 0 0 0 0;
+      -moz-background-clip: padding;
+      -webkit-background-clip: padding-box;
+      background-clip: padding-box;
+      background-color: rgba(217,176,98,.1);
+      -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+      -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+
+      color: #cf005d;
+      font-size: 24px;
+      font-style: italic;
+      font-weight: lighter !important;
+      font-family: 'Georgia', sans-serif;
+
+      outline: 0;
+      border: 0;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .contacts label{
+      color: #a2a4a9;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+    }
+    .form p, .form textarea{
+      width: inherit;
+    }
+    .form p input{
+      height: 50px;
+      width: 100%;
+    }
+    .form p textarea{
+      height: 208px;
+      width: 100%;
+    }
+    #map{
+      -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+      -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+    }
+</style>
+
+<div id="wrap-bg" style="margin-top: 100px;">
+  <div id="wrap-bg-top"></div>
+    <div id="content" class="container contacts">
+      <div class="row">
+        <div class="span12"><h1>Контакти «Двох сердець»</h1></div>
+        <div class="span12" style="text-align: center; margin-top: 50px;">
+          <p class="phone"><span class="phone-name">моб.:</span>+38 (067) 672-68-30</p>
+          <p class="address-line os">м. Львів, вул, Січових Стрільців 8</p>
+          <p class="email os"><span>@</span><a href="mailto:info@wed.in.ua">info@wed.in.ua</a></p>
+        </div>
+        <div class="span12"><img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart"><h2>Ми на Гугл мапі</h2></div>
+
+        <div class="span12" id="map"></div>
+        <div class="span12"><img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart"><h2>Пишіть нам</h2></div>
+        <div class="span4 form">
+          <p><input type="text" placeholder="Микола Воронін" id="name">
+            <label for="name">Ваше ім’я</label>
+          </p>
+          <p><input type="text" placeholder="+ 38 (050) 417 07 28" id="email">
+            <label for="email">Ваш контактний телефон</label>
+          </p>
+          <p><input type="text" placeholder="voronin.nick@gmail.com" id="phone">
+            <label for="phone">Ваша ел. скринька</label>
+          </p>
+        </div><!-- form span4 -->
+        <div class="span8 form">
+          <p>
+            <textarea name="body" id="body" placeholder="Текст приємного звернення до організаторів весіля та усіляких інших важливих міроприєств, що будуть організовані круто на найкращому рівні з врахування усіх потреб цільової аудиторії. "></textarea>
+            <label for="body">Ваше повідомлення</label>
+          </p>
+        </div>
+      </div><!-- row -->
+      <div id="separator-bottom" class="container padding">
+        <div class="row">
+          <div class="span1">
+            <img src="<%= asset_path('bottom_l.png') %>" alt="">
+          </div>
+          <div class="span4 sep-line push-down-sep">&nbsp;</div>
+          <div class="span2 txt-center push-down-sep">
+            <img src="<%= asset_path('h-heart.png') %>" alt="">
+          </div>
+          <div class="span4 sep-line push-down-sep">&nbsp;</div>
+          <div class="span1 text-right">
+            <img src="<%= asset_path('bottom_r.png') %>" alt="">
+          </div>
+        </div>
+      </div><!-- #seprator - top -bottom -->
+    </div><!-- content -->
+  <div id="wrap-bg-bottom"></div>
+</div><!-- wrap bg -->

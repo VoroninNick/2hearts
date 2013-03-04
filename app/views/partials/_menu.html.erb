@@ -1,3 +1,18 @@
+<% if current_page?(root_path) %>
+
+<% else %>
+  <style type="text/css">
+    .custom-pages-bg{
+      background: url(<%= asset_path('top-custom-bg.jpg') %>) repeat-x;
+      width: 100%;
+      height: 170px;
+      position: absolute;
+      top: 40px;
+      z-index: -10;
+    }
+  </style>
+  <div class="custom-pages-bg">&nbsp;</div>
+<% end %>
 <div id="top-bg"></div>
   <div id="header" class="container">
     <div id="head" class="row">
@@ -14,11 +29,11 @@
           <li>
             <a href="">Свята</a>
           </li>
-          <li>
+          <li <% if current_page?(services_path) %> class="act-section" <% end %>>
             <a href="/services">Послуги</a>
           </li>
-          <li class="act-section">
-            <a href="">Контакти</a>
+          <li <% if current_page?(contact_path) %> class="act-section" <% end %>>
+            <a href="/contact">Контакти</a>
           </li>
         </ul>
       </div>

@@ -1,5 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,cyrillic);
 
+::-webkit-input-placeholder {
+  color: #bbb7b1;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #bbb7b1;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #bbb7b1;
+}
+
+:-ms-input-placeholder {
+  color: #bbb7b1;
+}
 
 .os{
   font-family: 'Open Sans', sans-serif;
@@ -162,8 +177,8 @@ p{
   font-size: 18px;
   line-height: 71px;
   text-transform: uppercase;
-  padding-right: 18px;
-  padding-left: 18px;
+  padding-right: 22px;
+  padding-left: 22px;
 }
 
 #nav ul li:last-child{
@@ -217,8 +232,7 @@ p{
 
 /* main content bg */
 #wrap-bg{
-  /*background: url('../img/main-content-bg.png') repeat;*/
-  background-color: #feeef5;
+  background: url('main-content-bg.png') repeat;
 }
 #wrap-bg-top{
   background: url("main-content-top-bg.png") repeat;
@@ -230,7 +244,7 @@ p{
   background: url("main-content-bottom-bg.png") repeat;
   z-index: 99;
   height: 15px;
-  top: 8px;
+  top: 15px;
   position: relative;
 }
 
