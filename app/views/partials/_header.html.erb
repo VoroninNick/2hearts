@@ -14,6 +14,21 @@
   <meta name="web-developer" content="Калантаєвській Віктор">
   <%= yield :html_head %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAvkI36T-T6xJe8Qif7QkbQ1xvTl8Ha_9o&sensor=true"></script>
+  <script type="text/javascript" src="http://hpneo.github.com/gmaps/prettify/prettify.js"></script>
+  <link rel="stylesheet" href="http://hpneo.github.com/gmaps/prettify/prettify.css">
+  <script type="text/javascript">
+
+    $(document).ready(function() {
+      new GMaps({
+        div: '#map',
+        lat: -12.043333,
+        lng: -77.028333
+      });
+    });
+
+
+  </script>
 </head>
 <body <%= request.env['HTTP_CACHE_CONTROL'] %> data="<%= request.env['HTTP_ACCEPT_ENCODING'] %>">
 <div id="wraper-body">
