@@ -29,7 +29,7 @@
           <li>
             <a href="">Свята</a>
           </li>
-          <li <% if current_page?(services_path) || current_page?(services_catalog_path) || current_page?(services_sub_catalog_path) %> class="act-section" <% end %>>
+          <li <% if current_page?(services_path) || controller.controller_name == 'services' %> class="act-section" <% end %>>
             <a href="/services">Послуги</a>
           </li>
           <li <% if current_page?(contact_path) %> class="act-section" <% end %>>

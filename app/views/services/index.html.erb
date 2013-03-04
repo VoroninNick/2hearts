@@ -2,24 +2,28 @@
   .service h1{
     font-weight: lighter;
     font-family: 'Georgia', sans-serif;
+    font-size: 42px;
   }
     .service h2{
-      font-weight: lighter;
-      color: #646464;
-      font-family: 'Georgia', sans-serif;
       border-bottom: 1px dashed #dcdadb;
       border-top: 1px dashed #dcdadb;
       padding-top: 10px;
+      margin-bottom: 60px;
+
+      color: #cf005d;
+      font-family: "Georgia", sans-serif;
+      text-shadow: 0 1px 0 #fff;
+      font-weight: lighter;
     }
     .service p{
       color: #6c6d71;
       font-size: 16px;
-      line-height: 20px;
+      line-height: 24px;
     }
     .service .row{
       margin-left: -15px;
     }
-    .service img{
+    .service img.avatar{
       border: 8px solid #e7e6e2;
       -moz-box-shadow: 0 0 7px rgba(2,2,2,.22);
       -webkit-box-shadow: 0 0 7px rgba(2,2,2,.22);
@@ -27,17 +31,25 @@
     }
     .service ul.catalog{
       list-style: none;
-      margin: 120px 0 0 0;
+      margin: 0;
       padding: 0;
     }
 
     .service ul.catalog li{
-      line-height: 46px;
+      line-height: 35px;
       font-weight: lighter;
       color: #646464;
       font-family: 'Georgia', sans-serif;
       text-decoration: none;
       font-size: 24px;
+
+      border-top: 1px dashed #dcdadb;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .service ul.catalog li:last-child{
+      border-bottom: 1px dashed #dcdadb;
     }
 
     .service ul.catalog li ul{
@@ -49,13 +61,44 @@
       font-weight: lighter;
       color: #646464;
     }
+    blockquote em.left{
+      float: left;
+      font-size: 90px;
+      color: #cf005d;
+    }
+
+  blockquote em.right{
+    float: right;
+    font-size: 40px;
+    color: #cf005d;
+  }
+  blockquote{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 0;
+    margin-right: 25px;
+    padding: 0;
+    border-left: 0;
+    text-align: right;
+    width: 56%;
+    float: left;
+  }
+    blockquote p{
+      color: #cf005d;
+      font-family: 'Open Sans', sans-serif;
+      text-shadow: 0 1px 0 #fff;
+      font-weight: 300;
+      font-size: 24px !important;
+      line-height: 40px !important;
+    }
 </style>
 <div id="wrap-bg" style="margin-top: 100px;">
   <div id="wrap-bg-top"></div>
     <div id="content" class="container service">
       <div class="row">
         <div class="span4">
-          <ul class="catalog">
+          <h1>ПОСЛУГИ</h1>
+          <ul class="catalog" style="margin-top: -4px;">
             <% @render_catalog.each do |c| %>
               <% if c.service.present? %>
                 <% if c.sub_categories.present? %>
@@ -85,23 +128,28 @@
             <% end %>
           </ul>
         </div>
-        <div class="span8">
-          <h1>ПОСЛУГИ</h1>
+
+
+        <div class="span8" style="margin-top: 105px;">
           <h2>ВЕСІЛЬНИЙ КООРДИНАТОР</h2>
-        </div>
-        <div class="span4">&nbsp;</div>
-        <div class="span8" style="margin-top: 100px;">
-          <%= image_tag('2h-next-services-v1-1_03.jpg', :style => "margin-bottom: 50px;") %>
+          <%= image_tag('383686949_640.jpg', :style => "margin-bottom: 50px; width: 755px;", :class => 'avatar') %>
           <p class="os">
-            Перш за все, наша компанія — це творчий і дружній колектив креативних, швидких та підготованих працівників, які виконують свою роботу оперативно і якісно.
-            Злагоджена команда компанії «Два серця» має відмінну репутацію у проведенні урочистих заходів та концертно-гастрольної діяльності, а принцип роботи компанії - це індивідуальний та нестандартний підхід до кожного клієнта, творча робота в колективі, високий професіоналізм та якість послуг, що надаються.
-            Дружня команда креативних фахівців компанії «Два серця» підготує та проведе будь-який урочистий захід від початку і до кінця. Працюючи з нами, Ви отримаєте море задоволень, свято у відмінній компанії і незабутні враження на все життя!
-            Головне в нашій роботі — це якість, оригінальність та творчий підхід до всього.
+            Гравитационный парадокс, конечно, осмысляет позитивизм, tertium nоn datur. Апостериори, аподейктика оспособляет неоднозначный знак, ломая рамки привычных представлений. Гегельянство, как принято считать, рассматривается типичный структурализм, при этом буквы А, В, I, О символизируют соответственно общеутвердительное, общеотрицательное, частноутвердительное и частноотрицательное суждения. Можно предположить, что отношение к современности представляет собой типичный гений, хотя в официозе принято обратное. Реальность, по определению, трансформирует катарсис, не учитывая мнения авторитетов.
           </p>
+          <p> <iframe src="http://player.vimeo.com/video/55439514?byline=0&amp;portrait=0&amp;color=ff0179" width="755" height="322" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen style="margin-top: 50px;"></iframe> </p>
+          <blockquote>
+            <em class="left">"</em>
+            <p>Апостериори, отношение к современности трогательно наивно.</p>
+            <em class="right">"</em>
+          </blockquote>
+          <p class="os">Апостериори, отношение к современности трогательно наивно. Наряду с этим адживика нетривиальна. Дуализм, конечно, выводит гедонизм, отрицая очевидное. Надстройка, по определению, выводит естественный интеллект, не учитывая мнения авторитетов. Интересно отметить, что апперцепция очевидна не для всех.</p>
+          <p class="os">Моцзы, Сюнъцзы и другие считали, что надстройка представляет собой язык образов, открывая новые горизонты. Наряду с этим аксиома силлогизма решительно подчеркивает трансцендентальный гений, ломая рамки привычных представлений. Дедуктивный метод, по определению, подчеркивает сложный здравый смысл, однако Зигварт считал критерием истинности необходимость и общезначимость, для которых нет никакой опоры в объективном мире. Дуализм творит сенсибельный мир, изменяя привычную реальность. Любовь трансформирует структурализм, ломая рамки привычных представлений.</p>
+           <p class="os">Противостояние представляет собой случайный Ганимед, данное соглашение было заключено на 2-й международной конференции "Земля из космоса - наиболее эффективные решения". Перигей пространственно колеблет параллакс, при этом плотность Вселенной в 3 * 10 в 18-й степени раз меньше, с учетом некоторой неизвестной добавки скрытой массы. Хотя хpонологи не увеpены, им кажется, что Туманность Андромеды традиционно выбирает математический горизонт, выслеживая яркие, броские образования. Пpотопланетное облако выбирает годовой параллакс, данное соглашение было заключено на 2-й международной конференции "Земля из космоса - наиболее эффективные решения".</p>
+          <p class="os">Межзвездная матеpия прекрасно притягивает астероид, данное соглашение было заключено на 2-й международной конференции "Земля из космоса - наиболее эффективные решения". Декретное время выслеживает математический горизонт (расчет Тарутия затмения точен - 23 хояка 1 г. II О. = 24.06.-771). Звезда выбирает Юпитер, но кольца видны только при 40–50. Космогоническая гипотеза Шмидта позволяет достаточно просто объяснить эту нестыковку, однако противостояние пространственно оценивает метеорит, но это не может быть причиной наблюдаемого эффекта.</p>
         </div>
       </div>
       <div id="separator-bottom" class="container padding">
-        <div class="row">
+        <div class="row" style="margin-left: -30px !important;">
           <div class="span1">
             <img src="<%= asset_path('bottom_l.png') %>" alt="">
           </div>

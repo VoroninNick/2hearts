@@ -13,7 +13,7 @@ class Service < ActiveRecord::Base
   validates :description, :presence => true, :length => { :minimum => 2 }
 
   # Paperclip image attachments
-  has_attached_file :avatar, :styles => { :thumb => '150x150>', :main => '460x360#' },
+  has_attached_file :avatar, :styles => { :thumb => '150x150>', :main => '755x321#' },
                     :url    => '/assets/service/:id/:style/:basename.:extension',
                     :path   => ':rails_root/public/assets/service/:id/:style/:basename.:extension'
 
