@@ -15,5 +15,6 @@ class Asset < ActiveRecord::Base
                                                                            :small => { :geometry => "180x112#" }
   },
                     :url    => '/assets/attachment/:id/:style/:basename.:extension',
-                    :path   => ':rails_root/public/assets/attachment/:id/:style/:basename.:extension'
+                    :path   => ':rails_root/public/assets/attachment/:id/:style/:basename.:extension',
+                    :default_url => "/images/:style/mising.png"
 end

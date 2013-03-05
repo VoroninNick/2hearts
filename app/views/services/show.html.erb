@@ -102,27 +102,27 @@
           <% @render_catalog.each do |c| %>
             <% if c.service.present? %>
               <% if c.sub_categories.present? %>
-                <li><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %>
+                <li><%= link_to c.name.mb_chars.capitalize.to_s, services_path + '/' + c.slug + '/' + c.service.slug %>
                   <% c.sub_categories.each do |sc| %>
                     <ul>
-                      <li><%= link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug + '/' + c.service.slug %></li>
+                      <li><%= link_to sc.name.mb_chars.capitalize.to_s, services_path + '/' + c.slug + '/' + sc.slug + '/' + c.service.slug %></li>
                     </ul>
                   <% end %>
                 </li>
               <% else %>
-                <li><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %></li>
+                <li><%= link_to c.name.mb_chars.capitalize.to_s, services_path + '/' + c.slug + '/' + c.service.slug %></li>
               <% end %>
             <% else %>
               <% if c.sub_categories.present? %>
-                <li><%= c.name %>
+                <li><%= c.name.mb_chars.capitalize.to_s %>
                   <% c.sub_categories.each do |sc| %>
                     <ul>
-                      <li><%= sc.name %></li>
+                      <li><%= sc.name.mb_chars.capitalize.to_s %></li>
                     </ul>
                   <% end %>
                 </li>
               <% else %>
-                <li><%= c.name %></li>
+                <li><%= c.name.mb_chars.capitalize.to_s %></li>
               <% end %>
             <% end %>
           <% end %>
@@ -132,7 +132,8 @@
 
 
       <div class="span8" style="margin-top: 108px;">
-        <h2 ><%= @service.name %></h2>
+
+        <h2 ><%= @service.name.mb_chars.capitalize.to_s %></h2>
         <%= image_tag(@service.avatar.url(:main), :style => "margin-bottom: 50px;", :class => 'avatar') %>
         <div class="os_safe">
           <%= @service.description.html_safe %>
