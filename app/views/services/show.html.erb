@@ -41,25 +41,59 @@
     color: #646464;
     font-family: 'Georgia', sans-serif;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 18px;
 
     border-top: 1px dashed #dcdadb;
     padding-top: 10px;
     padding-bottom: 10px;
+    overflow: hidden;
+    cursor: pointer;
+
+  }
+
+  .service ul.catalog li span{
+    position: relative;
+    left: -35px;
+    -webkit-transition: 0.75s ease-out all;
+    -moz-transition: 0.75s ease-out all;
+    -ms-transition: 0.75s ease-out all;
+    -o-transition: 0.75s ease-out all;
+    transition: 0.75s ease-out all;
+    cursor: pointer;
   }
 
   .service ul.catalog li:last-child{
     border-bottom: 1px dashed #dcdadb;
   }
 
+
+  .service ul.catalog li:hover span a{
+    color: #cf005d;
+    border-bottom: 1px solid rgba(207, 0, 93, .75);
+  }
+
+  .service ul.catalog li:hover span{
+    left: 1px !important;
+  }
+
   .service ul.catalog li ul{
     list-style: none;
   }
 
-  .service ul.catalog li a, .service ul.catalog li a:hover, .service ul.catalog li a:active{
+  .service ul.catalog li a, .service ul.catalog li a:active{
     text-decoration: none;
     font-weight: lighter;
     color: #646464;
+
+    -webkit-transition: 0.45s ease-out all;
+    -moz-transition: 0.45s ease-out all;
+    -ms-transition: 0.45s ease-out all;
+    -o-transition: 0.45s ease-out all;
+    transition: 0.45s ease-out all;
+  }
+  .service ul.catalog li a:hover{
+    color: #cf005d;
+    border-bottom: 1px solid rgba(207, 0, 93, .75);
   }
   blockquote em.left{
     float: left;
@@ -92,7 +126,7 @@
     line-height: 40px !important;
   }
 </style>
-<div id="wrap-bg" style="margin-top: 100px;">
+<div id="wrap-bg" style="margin-top: 65px;">
   <div id="wrap-bg-top"></div>
   <div id="content" class="container service">
     <div class="row">
@@ -102,27 +136,27 @@
           <% @render_catalog.each do |c| %>
             <% if c.service.present? %>
               <% if c.sub_categories.present? %>
-                <li><%= link_to c.name.mb_chars.capitalize.to_s, services_path + '/' + c.slug + '/' + c.service.slug %>
+                <li><span><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %>
                   <% c.sub_categories.each do |sc| %>
                     <ul>
-                      <li><%= link_to sc.name.mb_chars.capitalize.to_s, services_path + '/' + c.slug + '/' + sc.slug + '/' + c.service.slug %></li>
+                      <li><%= link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug + '/' + c.service.slug %></li>
                     </ul>
                   <% end %>
-                </li>
+                </span></li>
               <% else %>
-                <li><%= link_to c.name.mb_chars.capitalize.to_s, services_path + '/' + c.slug + '/' + c.service.slug %></li>
+                <li><span><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %></span></li>
               <% end %>
             <% else %>
               <% if c.sub_categories.present? %>
-                <li><%= c.name.mb_chars.capitalize.to_s %>
+                <li><span><%= c.name %>
                   <% c.sub_categories.each do |sc| %>
                     <ul>
-                      <li><%= sc.name.mb_chars.capitalize.to_s %></li>
+                    <span><li><%= sc.name %></li></span>
                     </ul>
                   <% end %>
-                </li>
+                </span></li>
               <% else %>
-                <li><%= c.name.mb_chars.capitalize.to_s %></li>
+                <li><span><%= c.name %></span></li>
               <% end %>
             <% end %>
           <% end %>
@@ -133,7 +167,7 @@
 
       <div class="span8" style="margin-top: 108px;">
 
-        <h2 ><%= @service.name.mb_chars.capitalize.to_s %></h2>
+        <h2 ><%= @service.name %></h2>
         <%= image_tag(@service.avatar.url(:main), :style => "margin-bottom: 50px;", :class => 'avatar') %>
         <div class="os_safe">
           <%= @service.description.html_safe %>
@@ -145,8 +179,6 @@
               float: left;
               width: 180px;
             }
-
-
           </style>
           <script type="text/javascript">
             $(document).ready(function() {
