@@ -136,7 +136,7 @@
           <% @render_catalog.each do |c| %>
             <% if c.service.present? %>
               <% if c.sub_categories.present? %>
-                <li><span><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %>
+                <li><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><span><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %>
                   <% c.sub_categories.each do |sc| %>
                     <ul>
                       <li><%= link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug + '/' + c.service.slug %></li>
@@ -144,19 +144,19 @@
                   <% end %>
                 </span></li>
               <% else %>
-                <li><span><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %></span></li>
+                <li><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><span><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %></span></li>
               <% end %>
             <% else %>
               <% if c.sub_categories.present? %>
                 <li><span><%= c.name %>
                   <% c.sub_categories.each do |sc| %>
                     <ul>
-                    <span><li><%= sc.name %></li></span>
+                    <%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><span><li><%= sc.name %></li></span>
                     </ul>
                   <% end %>
                 </span></li>
               <% else %>
-                <li><span><%= c.name %></span></li>
+                <li><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><span><%= c.name %></span></li>
               <% end %>
             <% end %>
           <% end %>
@@ -188,7 +188,7 @@
           <div class="gallery-wrapper-item">
             <h2 style="margin-bottom: 20px; margin-top: 60px;">Галерея</h2>
             <% @service.assets.each do |a| %>
-              <%= link_to(image_tag(a.attachment.url(:small)), a.attachment.url(:main), :class => 'fancybox', :rel => 'gallery') %>
+              <%= link_to(image_tag(a.attachment.url(:small)), a.attachment.url(:original), :class => 'fancybox', :rel => 'gallery') %>
             <% end %>
           </div>
 
