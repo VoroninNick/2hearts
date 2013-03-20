@@ -136,27 +136,27 @@
           <% @render_catalog.each do |c| %>
             <% if c.service.present? %>
               <% if c.sub_categories.present? %>
-                <li><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><span><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %>
+                <li><span><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %>
                   <% c.sub_categories.each do |sc| %>
                     <ul>
-                      <li><%= link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug + '/' + c.service.slug %></li>
+                      <li><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><%= link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug + '/' + c.service.slug %></li>
                     </ul>
                   <% end %>
                 </span></li>
               <% else %>
-                <li><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><span><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %></span></li>
+                <li><span><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><%= link_to c.name, services_path + '/' + c.slug + '/' + c.service.slug %></span></li>
               <% end %>
             <% else %>
               <% if c.sub_categories.present? %>
                 <li><span><%= c.name %>
                   <% c.sub_categories.each do |sc| %>
                     <ul>
-                    <%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><span><li><%= sc.name %></li></span>
+                    <span><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><li><%= sc.name %></li></span>
                     </ul>
                   <% end %>
                 </span></li>
               <% else %>
-                <li><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><span><%= c.name %></span></li>
+                <li><span><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><%= c.name %></span></li>
               <% end %>
             <% end %>
           <% end %>

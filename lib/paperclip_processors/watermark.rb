@@ -1,9 +1,9 @@
-# from http://github.com/ng/paperclip-watermarking-app 
+# from http://github.com/ng/paperclip-watermarking-app
 # with modifications from http://exviva.posterous.com/watermarking-images-with-rails-3-and-papercli
 # and even more modifications to ensure works with paperclip 2.3.8 and rails 3.0.3
 #
 # Note: In rails 3 paperclip processors are not automatically loaded.
-# You must add the following above your model class definition: 
+# You must add the following above your model class definition:
 #
 # require 'paperclip_processors/watermark'
 
@@ -16,7 +16,9 @@ module Paperclip
       super
       geometry          = options[:geometry]
       @file             = file
-      @crop             = geometry[-1,1] == '#'
+      if geometry.present?
+        @crop             = geometry[-1,1] == '#'
+      end
       @target_geometry  = Geometry.parse geometry
       @current_geometry = Geometry.from_file @file
       @convert_options  = options[:convert_options]
@@ -80,11 +82,19 @@ module Paperclip
     end
 
     def transformation_command
-      scale, crop = @current_geometry.transformation_to(@target_geometry, crop?)
-      trans = %W[-resize #{scale}]
-      trans += %W[-crop #{crop} +repage] if crop
-      trans << convert_options if convert_options?
-      trans
+      if @target_geometry.present?
+        scale, crop = @current_geometry.transformation_to(@target_geometry, crop?)
+        trans = %W[-resize #{scale}]
+        trans += %W[-crop #{crop} +repage] if crop
+        trans << convert_options if convert_options?
+        trans
+      else
+        scale, crop = @current_geometry.transformation_to(@current_geometry, crop?)
+        trans = %W[-resize #{scale}]
+        trans += %W[-crop #{crop} +repage] if crop
+        trans << convert_options if convert_options?
+        trans
+      end
     end
   end
 end
