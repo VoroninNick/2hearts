@@ -1,4 +1,3 @@
-require 'paperclip_processors/watermark'
 class Ckeditor::Picture < Ckeditor::Asset
   has_attached_file :data, :processors => [:watermark],
                     :url  => "/ckeditor_assets/pictures/:id/:style_:basename.:extension",

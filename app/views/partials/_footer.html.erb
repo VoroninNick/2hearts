@@ -4,17 +4,22 @@
       <div id="back_top"></div>
         <div class="main-footer-area row">
           <div class="span4 info-text">
-            <img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart"><h2>Два серця</h2>
-            <p class="os">&mdash; це активно розвинута агенція, яка успішно займається підготовкою та організацією різноманітних свят, заходів, вечірок, ювілеїв та інших урочистих подій. </p>
+            <img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart"><h2><%= find_text(6).name %></h2>
+            <p class="os"><%= find_text(6).descr %></p>
           </div>
           <div class="span4 info-text">
             <img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart"><h2 class="foot-main-h2">Соціальні мережі</h2><h2 class="foot-h2to-hide">Соц. мережі</h2>
+            <a href="http://vk.com/id164559077" class="social-link-footer-a">VK</a>
+            <a href="https://www.facebook.com/wed.in.ua" class="social-link-footer-a">F</a>
+            <a href="https://vimeo.com/user14932877" class="social-link-footer-a">V</a>
+            <a href="https://twitter.com/TwoheartsWed" class="social-link-footer-a">T</a>
+            <a href="http://vimeo.com/user14932877" target="_blank" class="social-link-footer-a">V</a>
           </div>
           <div class="span4 info-text">
             <img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart"><h2>Контакти</h2>
             <p class="os">м. Львів, вул. Січових Стрільців, 8</p>
 						<p class="tel pk">+38 (067) 672 68 30</p>
-						<p class="os">@: <a href="mailto:info@wed.in.ua" class="pk">info@wed.in.ua</a></p>
+						<p class="os"><a href="mailto:info@wed.in.ua" class="pk">info@wed.in.ua</a></p>
           </div>
         </div><!-- main-footer-area -->
         <div id="sep-footer" class="row txt-center">
@@ -23,12 +28,12 @@
 	        <div class="span1 text-right"><img src="<%= asset_path('sep-r.png') %>" alt=""></div>
         </div>
         <div class="row os" id="sub-footer">
-          <div class="span4">&copy; 2012 event agency «Два серця»</div>
-          <div class="span4"><img src="<%= asset_path('logo-studio.png') %>" alt="" style="margin-left: -40px;position: absolute;">Зроблено в <a href="http://voroninstudio.eu">дизайн студії Миколи Вороніна</a><br><a href="http://voroninstudio.eu">Інформація про сайт</a></div>
+          <div class="span4">&copy; 2008 &mdash; 2013 івент агенція «Два серця»</div>
+          <div class="span4"><img src="<%= asset_path('v-logo.png') %>" alt="" style="margin-left: -40px;position: absolute;width: 32px;opacity: 0.65;">Зроблено в <a href="http://voroninstudio.eu">дизайн студії Миколи Вороніна</a><br><a href="http://voroninstudio.eu">Інформація про сайт</a></div>
           <div class="span4">
             <ul class="footer-menu">
               <li><a href="">Агенція</a></li>
-              <li><a href="">Свята</a></li>
+              <!-- li><a href="">Свята</a></li -->
               <li><a href="">Послуги</a></li>
               <li><a class="last-child" href="">Контакти</a></li>
             </ul>

@@ -1,4 +1,3 @@
-require 'paperclip_processors/watermark'
 class Asset < ActiveRecord::Base
   attr_accessible :assetable_id, :assetable_type, :attachment, :delete_attachment
 

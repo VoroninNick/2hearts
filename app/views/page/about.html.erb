@@ -1,2 +1,98 @@
-<h1>Page#about</h1>
-<p>Find me in app/views/page/about.html.erb</p>
+<div id="wrap-bg" style="margin-top: 56px;">
+  <div id="wrap-bg-top"></div>
+  <div id="content" class="container about-page">
+	<div class="row">
+
+		<div class="span10 about-m">
+			<h1>«Два серця» – агентство щасливих подій</h1>
+		</div>
+		<div class="span2" style="height: 120px;">&nbsp;</div>
+		<div class="clearfix"></div>
+		<div class="span2">&nbsp;</div>
+		<div class="span7">
+			<p>Що вам подобається більше? Приймати гостей чи ходити в гості? Але бути господарем чи господинею свята місія зажди приємна. Особливо, коли ви доручите усі організаційні справи івент-агенції «Два серця».</p>
+			<p>Свята в колі рідних чи друзів є важливими подіями вашого життя. Ми робимо святкові події також і щасливими. Нам це вдається якнайкраще, адже ми прагнемо зрозуміти яким своє свято бачите ви. І саме для втілення ваших унікальних бажань, для здійснення ваших мрій, ми створюємо оригінальну ідею.</p>
+		</div>
+		<div class="span3 about-main-girl"><%= image_tag('about-girl.png', :style => "max-width: none;") %></div>
+		<div class="clearfix about-pad"></div>
+
+		<div class="span4 about-m">
+			<%= image_tag('about-page-first.jpg', :class => 'about-img') %>
+		</div>
+		<div class="span4 about-m">
+			<%= image_tag('about-page-first.jpg', :class => 'about-img') %>
+		</div>
+		<div class="span4 about-m">&nbsp;</div>
+		<div class="clearfix"></div>
+		<div class="span6 about-m">
+			<h2>ХТО МИ?</h2>
+			<p>Івент-агенція «Два серця» об’єднує досвідчених професіоналів, котрі вміють створювати видовищні дійства. Після того, як ми досконало зробили свою роботу, гості завжди захоплено говорять: «Свято вдалося!».</p>
+		</div>
+		<div class="span5 about-m">
+			<h2>ЩО РОБИМО?</h2>
+			<ul>
+				<li><span>&mdash;&nbsp;</span>Весілля</li>
+				<li><span>&mdash;&nbsp;</span>Корпоративний відпочинок</li>
+				<li><span>&mdash;&nbsp;</span>День народження</li>
+				<li><span>&mdash;&nbsp;</span>Новий рік</li>
+			</ul>
+			<ul>
+				<li><span>&mdash;&nbsp;</span>Річниця</li>
+				<li><span>&mdash;&nbsp;</span>Вечірки</li>
+				<li><span>&mdash;&nbsp;</span>Ювілей</li>
+				<li><span>&mdash;&nbsp;</span>Професійні свята</li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+		<div class="span6 fancy-text about-m">
+			<p class="why">ЧОМУ</p>
+			<p class="we">МИ</p>
+			<p class="question-mark">?</p>
+		</div>
+		<div class="span5 about-m">
+			<p class="we-sell">Ми не продаємо повітря, всі послуги власні. Працюємо командою на конкретний результат!</p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="span6 about-m">
+			<h2>НАША КОМАНДА</h2>
+			<p>Ми – закохані у свою роботу професіонали. Організовуючи ваше свято, ми переймаємося кожною дрібничкою і хвилюємося за настрій гостей. Кожен з нас відповідає за конкретний спільний результат – дивовижне свято для вас.</p>
+		</div>
+
+		<div class="span5 about-m team-1-pic">
+			<%= image_tag('about-team-1.jpg', :class => 'about-img') %>
+		</div>
+		<div class="clearfix" style="padding-bottom: 60px;"></div>
+		<% @members.each do |member| %>
+		<div class="span5 about-m team-lead">
+			<%= image_tag(member.avatar.url(:show), :class => 'about-img', :style => 'float: left;', :width => '125') %>
+			<div class="team-lead-info-r">
+				<h2><%= member.full_name %></h2>
+			<i><%= member.position %></i>
+			<p><%= member.short_descr %></p>
+			</div>
+		</div>
+		<% end %>
+
+
+
+
+
+	</div><!-- row -->
+	<div id="separator-bottom" class="container " style="margin-left: 20px;">
+        <div class="row">
+          <div class="span1">
+            <img src="<%= asset_path('bottom_l.png') %>" alt="">
+          </div>
+          <div class="span4 sep-line push-down-sep">&nbsp;</div>
+          <div class="span2 txt-center push-down-sep">
+            <img src="<%= asset_path('h-heart.png') %>" alt="">
+          </div>
+          <div class="span4 sep-line push-down-sep">&nbsp;</div>
+          <div class="span1 text-right">
+            <img src="<%= asset_path('bottom_r.png') %>" alt="">
+          </div>
+        </div>
+      </div><!-- #seprator - top -bottom -->
+  </div><!-- content -->
+  <div id="wrap-bg-bottom"></div>
+</div><!-- wrap bg -->

@@ -618,7 +618,7 @@ pre code {
 }
 @media (min-width: 1px) and (max-width: 979px) {
     body{
-      /*min-width: 800px !important;*/
+      min-width: 800px !important;
     }
     /* Folding Options */
     .proverbs-folding {
@@ -681,7 +681,7 @@ pre code {
     }
 
    .row {
-    margin-left: -20px;
+    margin-left: -50px !important;
     *zoom: 1;
   }
   .row:before,

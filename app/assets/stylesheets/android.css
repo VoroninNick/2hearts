@@ -65,7 +65,7 @@
 @media (min-device-width: 800px) and (orientation: portrait) {
 
 body{
-      
+
     }
     .info-text{
     	font-size: 19px !important;
@@ -147,7 +147,7 @@ body{
     }
 
    .row {
-    margin-left: 50px !important;
+    /*margin-left: 50px !important;*/
     *zoom: 1;
   }
   .row:before,

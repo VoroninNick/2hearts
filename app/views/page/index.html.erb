@@ -1,16 +1,141 @@
+<style>
+  .parallax-layer{
+    top: 900px;
+  }
+</style>
+
+<script>
+$(document).ready(function() {
+  $('#animate1').click(function(){
+    $("#banners").animate({
+      height: 486
+    },
+    {
+      duration: 2000,
+      easing: 'easeInOutExpo'
+    });
+  });
+
+  $('#animate2').click(function(){
+    $("#banners").animate({
+      height: 100
+    },
+    {
+      duration: 2000,
+      easing: 'easeInOutExpo'
+    });
+  });
+
+
+  $("#animate3").click(function(){
+    window.setTimeout(AnimatedFirst, 2000);
+    window.setTimeout(AnimatedSecond, 1500);
+    window.setTimeout(AnimatedThird, 1000);
+    window.setTimeout(AnimatedSublast, 4000);
+    window.setTimeout(AnimatedLast, 5000);
+  });
+
+  function PlayFirstBanner(){
+    window.setTimeout(AnimatedFirst, 2000);
+    window.setTimeout(AnimatedSecond, 1500);
+    window.setTimeout(AnimatedThird, 1000);
+    window.setTimeout(AnimatedSublast, 4000);
+    window.setTimeout(AnimatedLast, 4200);
+  }
+
+  function AnimatedFirst(){
+    $('#layer-1').animate(
+      { top: 0 },
+      { duration: 2000, easing: 'easeOutBack' }
+    );
+  }
+
+  function AnimatedSecond(){
+    $('#layer-2').animate(
+      { top: 0 },
+      { duration: 1000, easing: 'easeOutBack' }
+    );
+  }
+
+  function AnimatedThird(){
+    $('#layer-3').animate(
+      { top: 0 },
+      { duration: 1000, easing: 'linear' }
+    );
+  }
+
+  function AnimatedSublast(){
+    $('#layer-4').animate(
+      { top: 0 },
+      { duration: 1300, easing: 'easeOutBack' }
+    );
+  }
+
+  function AnimatedLast(){
+    $('#layer-5').animate(
+      { top: 0 },
+      { duration: 1500, easing: 'easeOutBack', complete: ActivateParalax() }
+
+    );
+  }
+
+  function ShowParalax(){
+    $("#banners").animate({
+      height: 486
+    },
+    {
+      duration: 2000,
+      easing: 'easeInOutExpo'
+    });
+  }
+
+  function ActivateParalax(){
+    //Paralax main header banner
+    $('#paralax .parallax-layer').parallax({
+      mouseport: $('#paralax'),
+      xorigin:		1,       // 0-1 - Sets default alignment. Only has effect when parallax values are something other than 1 (or true, or '100%')
+      yorigin:		0.8
+    });
+
+  }
+
+
+  window.setTimeout(ShowParalax, 200);
+  window.setTimeout(PlayFirstBanner, 300);
+
+});
+</script>
+
+<!-- <div id="animate1" style="cursor: pointer; border: 2px red solid; position: fixed; top: 5px; left: 10px; padding: 5px;">
+  Click to animate +!
+</div>
+<div id="animate2" style="cursor: pointer; border: 2px green solid; position: fixed; top: 5px; left: 160px; padding: 5px;">
+  Click to animate -!
+</div>
+<div id="animate3" style="cursor: pointer; border: 2px blue solid; position: fixed; top: 5px; left: 300px; padding: 5px;">
+  Show elements !
+</div> -->
+
 <!-- Banner section -->
-<div id="banners" class="">
-
-  <div class="clearfix" id="paralax">
-    <div class="parallax-layer" style="width:974px; height:511px;">
-      <img src="<%= asset_path('girl.jpg') %>" />
+<div id="banners" class="" style="height: 100px;">
+  <div class="clearfix parallax-viewport" id="paralax" style="width: 1500px; margin: 0 auto;overflow-x: visible; overflow-y: visible;">
+    <!--div class="parallax-layer" style="width:1280px; height:486px;z-index:90;margin-left: 7%;overflow: visible;" id="layer-5">
+      <%#= image_tag('two_hearts_4.png') %>
+    </div -->
+    <div class="parallax-layer" style="width:880px; height:486px;z-index:90;margin-left: 7%;overflow: visible;" id="layer-5">
+      <%= image_tag('two_hearts_4.png') %>
     </div>
-    <div class="parallax-layer" style="width:1474px; height:511px;">
-      <img src="<%= asset_path('layer_2.png') %>" />
+    <div class="parallax-layer" style="width:1340px; height:486px;z-index:30;margin-left: 5%;overflow: visible;" id="layer-4">
+      <%= image_tag('two_hearts_3.png') %>
     </div>
-
-    <div class="parallax-layer" style="width:1274px; height:511px;">
-      <img src="<%= asset_path('layer_1.png') %>" />
+    <div class="parallax-layer" style="width:1470px; height:486px;z-index:50;left: -100px;" id="layer-3">
+      <%= image_tag('two_hearts_2.png', :style => 'margin-top: 30px;margin-left: -100px;') %>
+    </div>
+    <div class="parallax-layer" style="width:1300px; height:486px;z-index:10;margin-left: -5%;" id="layer-2">
+      <%= image_tag('two_hearts_1a.png') %>
+    </div>
+    <div class="parallax-layer" style="width:1400px; height:486px;z-index:15;" id="layer-1">
+      <%= image_tag('two_hearts_1b.png', :style => "margin-left: 52%;margin-top: -30px;") %>
     </div>
 
 
@@ -34,18 +159,18 @@
     <div id="proverbs" class="padding">
       <div class="row">
         <div class="span4 proverbs-folding">
-          <h2><img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart">Весілля</h2>
-          <p class="info-text os">Весілля – це найромантичніша та найважливіша подія в житті кожної людини. І тому дуже хочеться, щоб ця подія запам'яталась всім на довгі роки.</p>
+          <h2><img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart"><%= find_text(1).name %></h2>
+          <p class="info-text os"><%= find_text(1).descr %></p>
         </div>
 
         <div class="span4 proverbs-folding">
-          <h2><img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart">Корпоративи</h2>
-          <p class="info-text os">Корпоративні свята дозволяють співробітникам фірм влитися в колектив, зміцнити професійну команду, розрядити робочу атмосферу та розкрити свої таланти і можливості.</p>
+          <h2><img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart"><%= find_text(2).name %></h2>
+          <p class="info-text os"><%= find_text(2).descr %></p>
         </div>
 
         <div class="span4 proverbs-folding">
-          <h2><img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart">Дитячі свята</h2>
-          <p class="info-text os">They clients are advertising agencies and auto&video companies. We create fresh looking geometric shape with fruit, catch eyes colors.</p>
+          <h2><img src="<%= asset_path('h-heart.png') %>" alt="" class="h2-heart"><%= find_text(3).name %></h2>
+          <p class="info-text os"><%= find_text(3).descr %></p>
         </div>
       </div>
     </div>
@@ -53,13 +178,13 @@
     <div id="video" class="padding">
       <div class="row">
         <div class="span7">
-          <iframe class="main-video-frame" src="http://player.vimeo.com/video/33507366?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          <iframe class="main-video-frame" src="http://player.vimeo.com/video/<%= main_video.video_id %>?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
         </div>
         <div class="span5 video-info-block video-text-folding">
-          <h1>Два сердця</h1>
-          <p class="video-text os">— це активно розвинута агенція, яка успішно займається підготовкою та організацією різноманітних свят, заходів, вечірок, ювілеїв та інших урочистих подій. Колектив креативних та підготовлених фахівців допоможе вам створити і провести незабутній день у вашому житті.</p>
-          <p class="video-text os"><i>Ми допоможемо Вам створити індивідуальний сценарій, запропонуємо свій стиль проведення свята чи втілимо Ваші побажання та ідеї.</i></p>
+          <h1><%= find_text(4).name %></h1>
+          <p class="video-text os"><%= find_text(4).descr %></p>
+          <p class="video-text os"><i><%= find_text(5).descr %></i></p>
         </div>
       </div>
     </div>
@@ -71,7 +196,7 @@
         </div>
         <div class="span4 sep-line">&nbsp;</div>
         <div class="span2 txt-center sep-center-img">
-          <img src="<%= asset_path('h-heart.png') %>" alt=""><h2>???? ?????</h2>
+          <img src="<%= asset_path('h-heart.png') %>" alt=""><h2>Наші роботи</h2>
         </div>
         <div class="span4 sep-line">&nbsp;</div>
         <div class="span1 text-right sep-left-flower">
@@ -83,34 +208,19 @@
     <!-- Video Section -->
     <div id="video-section" class="container padding">
       <div class="row">
+        <% home_video.each do |hv| %>
         <div class="span3 make-full-width">
-          <h3>Найважливіша подія</h3>
-          <div class="video-section-frame">
-            <iframe src="http://player.vimeo.com/video/28664667?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="270" height="152" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          </div>
-          <p>Весілля – це найромантичніша та найважливіша подія в житті кожної людини.</p>
+          <h3><%= hv.name %></h3>
+          <% if hv.vimeo == true %>
+        <div class="video-section-frame">
+          <iframe src="http://player.vimeo.com/video/<%= hv.video_id %>?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="270" height="152" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
-        <div class="span3 make-full-width">
-          <h3>Це було щось неймовірнe!</h3>
-          <div class="video-section-frame">
-            <iframe src="http://player.vimeo.com/video/45818214?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="270" height="152" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          </div>
-          <p>Це було щось неймовірно цікаве і граціозне. А два серця зняли з нас весь тягяр організації!</p>
-        </div>
-        <div class="span3 make-full-width">
-          <h3>Корпоративні свята</h3>
-          <div class="video-section-frame">
-            <iframe src="http://player.vimeo.com/video/35464138?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="270" height="157" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          </div>
-          <p>Корпоративні свята дозволяють співробітникам фірм влитися в колектив, зміцнити професійну команду.</p>
-        </div>
-        <div class="span3 make-full-width">
-          <h3>Індивідуальний сценарій</h3>
-          <div class="video-section-frame">
-            <iframe src="http://player.vimeo.com/video/27615637?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" width="270" height="152" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          </div>
-          <p>Ми допоможемо Вам створити індивідуальний сценарій, запропонуємо свій стиль.</p>
-        </div>
+          <% elsif hv.youtube == true %>
+
+          <% end %>
+          <p><%= hv.descr %></p>
+        </div> <!-- Video item end here -->
+        <% end %>
       </div>
     </div>
     <!-- Video Section End -->
@@ -122,7 +232,7 @@
         </div>
         <div class="span4 sep-line">&nbsp;</div>
         <div class="span2 txt-center sep-center-img">
-          <img src="<%= asset_path('h-heart.png') %>" alt=""><h2>Відгукі про нас</h2>
+          <img src="<%= asset_path('h-heart.png') %>" alt=""><h2>Відгуки про нас</h2>
         </div>
         <div class="span4 sep-line">&nbsp;</div>
         <div class="span1 text-right sep-left-flower">
@@ -133,45 +243,17 @@
 
     <div id="wedding-feedback" class="container padding">
       <div class="row">
-        <div class="span6 wedding-feedback-container">
-          <div class="feedback-img-sign">
-            <img src="<%= asset_path('wf-2.jpg') %>" alt="" class="feedback-img">
-            <img src="<%= asset_path('hear_sign_img.png') %>" alt="" class="img-sign">
+        <% @feedback.each do |f| %>
+        <div class="span6 wedding-feedback-container" style="<%= cycle('', '', 'margin-top:10px;', 'margin-top:10px;') %>">
+          <div class="feedback-img-sign" >
+            <%= image_tag(f.avatar.url(:thumb), :alt => f.name, :class => 'feedback-img') %>
           </div>
-          <h2>Елегантно і зі смаком.</h2>
-          <p><i>Це було щось неймовірно цікаве і граціозне. А два серця зняли з нас весь тягяр організації - ми просто насолоджувались моментом і ні про що не думали! Все на висоті!</i></p>
-          <p class="author">Андрій та Світлана</p>
+          <h2 style="line-height: 26px;"><%= f.name %></h2>
+          <p><i><%= truncate(f.descr, :length => 200, :omission => '...') %></i></p>
+          <p class="author"><%= f.customer_name %></p>
         </div>
+        <% end %>
 
-        <div class="span6 wedding-feedback-container">
-          <div class="feedback-img-sign">
-            <img src="<%= asset_path('wf-2.jpg') %>" alt="" class="feedback-img">
-            <img src="<%= asset_path('hear_sign_img.png') %>" alt="" class="img-sign">
-          </div>
-          <h2>Елегантно і зі смаком.</h2>
-          <p><i>Це було щось неймовірно цікаве і граціозне. А два серця зняли з нас весь тягяр організації - ми просто насолоджувались моментом і ні про що не думали! Все на висоті!</i></p>
-          <p class="author">Андрій та Світлана</p>
-        </div>
-
-        <div class="span6 wedding-feedback-container">
-          <div class="feedback-img-sign">
-            <img src="<%= asset_path('wf-2.jpg') %>" alt="" class="feedback-img">
-            <img src="<%= asset_path('hear_sign_img.png') %>" alt="" class="img-sign">
-          </div>
-          <h2>Елегантно і зі смаком.</h2>
-          <p><i>Це було щось неймовірно цікаве і граціозне. А два серця зняли з нас весь тягяр організації - ми просто насолоджувались моментом і ні про що не думали! Все на висоті!</i></p>
-          <p class="author">Андрій та Світлана</p>
-        </div>
-
-        <div class="span6 wedding-feedback-container">
-          <div class="feedback-img-sign">
-            <img src="<%= asset_path('wf-2.jpg') %>" alt="" class="feedback-img">
-            <img src="<%= asset_path('hear_sign_img.png') %>" alt="" class="img-sign">
-          </div>
-          <h2>Елегантно і зі смаком.</h2>
-          <p><i>Це було щось неймовірно цікаве і граціозне. А два серця зняли з нас весь тягяр організації - ми просто насолоджувались моментом і ні про що не думали! Все на висоті!</i></p>
-          <p class="author">Андрій та Світлана</p>
-        </div>
       </div>
     </div>
 

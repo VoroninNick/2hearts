@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301105953) do
+ActiveRecord::Schema.define(:version => 20130429132137) do
 
   create_table "assets", :force => true do |t|
     t.integer  "assetable_id"
@@ -49,6 +49,28 @@ ActiveRecord::Schema.define(:version => 20130301105953) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "feedbacks", :force => true do |t|
+    t.string   "name"
+    t.text     "descr"
+    t.string   "customer_name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "home_videos", :force => true do |t|
+    t.string   "name"
+    t.string   "descr"
+    t.boolean  "youtube"
+    t.boolean  "vimeo"
+    t.integer  "video_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -89,6 +111,25 @@ ActiveRecord::Schema.define(:version => 20130301105953) do
   end
 
   add_index "sub_categories", ["slug"], :name => "index_sub_categories_on_slug"
+
+  create_table "teams", :force => true do |t|
+    t.string   "full_name"
+    t.text     "short_descr"
+    t.string   "position"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "text_editors", :force => true do |t|
+    t.string   "name"
+    t.text     "descr"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

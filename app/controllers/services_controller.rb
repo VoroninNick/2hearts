@@ -18,6 +18,13 @@ class ServicesController < ApplicationController
     end
   end
 
+  def get_childs
+    @render_catalog ||= Category.all
+    @sub ||= SubCategory.find_by_slug!(params[:id])
+    @service = Service.find_by_sub_category_id(@sub.id)
+  end
+
+
   # GET /services/new
   # GET /services/new.json
   def new

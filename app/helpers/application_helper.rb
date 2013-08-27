@@ -12,6 +12,21 @@ module ApplicationHelper
     end
   end
 
-
+  # Get current url path
+  def current_url
+    request.env['REQUEST_URI']
+  end
+  
+  def find_text(id)
+    @find_text = TextEditor.find(id)
+  end
+  
+  def main_video
+    @main_video ||= HomeVideo.find(5)
+  end
+  
+  def home_video
+    @home_video ||= HomeVideo.first(4)
+  end
 
 end

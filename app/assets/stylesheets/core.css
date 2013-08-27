@@ -59,6 +59,14 @@
 	margin-top: 30px;
 }
 
+h1{
+    font-weight: lighter !important;
+    font-size: 46px !important;
+    color: rgb(207, 0, 93) !important;
+    text-shadow: 0 1px 0 rgb(255, 255, 255) !important;
+    font-family: "Georgia", serif !important;
+}
+
 html, body, #wrap { height: 100%; }
 body > #wrap {height: auto; min-height: 100%;}
 #wraper-body{ padding-bottom: 380px; }
@@ -81,9 +89,9 @@ body{
 }
 
 #paralax{
-  height:511px;
+  height:486px;
   position: relative;
-  
+
 }
 
 #paralax img{
@@ -177,8 +185,8 @@ p{
   font-size: 18px;
   line-height: 71px;
   text-transform: uppercase;
-  padding-right: 22px;
-  padding-left: 22px;
+  padding-right: 25px;
+  padding-left: 25px;
 }
 
 #nav ul li:last-child{
@@ -222,12 +230,19 @@ p{
 /* banners */
 #banners{
 	display: block;
-	overflow-x: hidden;
-  margin-top: -40px;
+	overflow: hidden;
+  margin-top: -5px;
 }
 
 #paralax{
   /*margin-top: -42px;*/
+}
+
+.parallax-viewport{
+  overflow: hidden;
+  height: 486px;
+  width: 100%;
+  position:relative;
 }
 
 #img-fix{
@@ -334,7 +349,7 @@ p{
 .feedback-img-sign{
   /*background: url('../img/hear_sign_img.png') no-repeat 0px 0px;*/
   float: left;
-  height: 154px;
+  height: 340px;
   margin-right: 20px;
 }
 
@@ -345,6 +360,7 @@ p{
 
 .wedding-feedback-container{
   margin-top: 60px;
+  height: 280px;
 }
 
 .author{
@@ -430,4 +446,85 @@ ul.footer-menu li a:hover,
 ul.footer-menu li a:active,
 ul.footer-menu li a:visited{
     color: #cacaca !important;
+}
+
+
+#cont-bt-wrapper{
+  float: right;
+  margin-right: 16px;
+}
+
+
+.branded-bt{
+  float: left;
+  height: 62px;
+  cursor: pointer;
+}
+
+.branded-bt .bt-start{
+  background: url('branded-bt-start.png') no-repeat transparent;
+  height: 62px;
+  float: left;
+  width: 54px;
+}
+
+.branded-bt .bt-end{
+  background: url('branded-bt-end.png') no-repeat transparent;
+  height: 62px;
+  float: left;
+  width: 62px;
+}
+
+.branded-bt .bt-center{
+  background: url('branded-bt-center.png') repeat-x transparent;
+  height: 62px;
+  float: left;
+}
+
+.branded-bt .bt-center a{
+  color: #fff;
+  font-family: "Georgia", serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  line-height: 62px;
+
+  -webkit-transition: 0.45s ease-out all;
+  -moz-transition: 0.45s ease-out all;
+  -ms-transition: 0.45s ease-out all;
+  -o-transition: 0.45s ease-out all;
+  transition: 0.45s ease-out all;
+}
+
+
+
+.social-link-footer-a{
+  text-decoration: none;
+  color: #e9e9e9;
+
+  -webkit-transition: 0.45s ease-out all;
+  -moz-transition: 0.45s ease-out all;
+  -ms-transition: 0.45s ease-out all;
+  -o-transition: 0.45s ease-out all;
+  transition: 0.45s ease-out all;
+  display: block;
+  float: left;
+  margin-right: 25px;
+
+  font-size: 20px;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.3);
+  padding: 12px;
+
+  background: rgba(0,0,0, .05);
+  border-radius: 5px;
+  font-family: 'Georgia', serif;
+}
+
+.social-link-footer-a:hover{
+  text-decoration: none;
+  color: #d0005d;
 }
