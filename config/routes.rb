@@ -3,7 +3,8 @@ TwoHeartsMonsterPack::Application.routes.draw do
   #resources :services
   # Statics pages
   match '/about'                                      => 'page#about'
-  match '/contact'                                    => 'page#contact', :as => 'contact'
+  match '/contact'                                                   => 'contact#new', :as => 'contact', :via => :get
+  match '/contact'                                                   => 'contact#create', :as => 'contact', :via => :post
   match '/services'                                    => 'services#index'
   match '/services/:id'                   => 'services#show', :as => 'services_catalog'
   match '/services/:category_id/:id'  => 'services#get_childs', :as => 'services_sub_catalog'
