@@ -117,7 +117,12 @@ $(document).ready(function() {
 </div> -->
 
 <!-- Banner section -->
-<div id="banners" class="" style="height: 100px;">
+<style type="text/css">
+  #banners{
+    clear: both;
+  }
+</style>
+<div id="banners" class="clearfix" style="height: 100px;">
   <div class="clearfix parallax-viewport" id="paralax" style="width: 1500px; margin: 0 auto;overflow-x: visible; overflow-y: visible;">
     <!--div class="parallax-layer" style="width:1280px; height:486px;z-index:90;margin-left: 7%;overflow: visible;" id="layer-5">
       <%#= image_tag('two_hearts_4.png') %>
@@ -140,7 +145,7 @@ $(document).ready(function() {
 
 
   </div>
-
+  <br class="clearfix" />
   <div class="container small-banner">
     <div class="row">
       <div class="span12 txt-center">
@@ -152,7 +157,7 @@ $(document).ready(function() {
 </div>
 <!-- /Banner section -->
 
-<div id="wrap-bg">
+<div id="wrap-bg" class='clearfix'>
   <div id="wrap-bg-top"></div>
   <div id="content" class="container">
 

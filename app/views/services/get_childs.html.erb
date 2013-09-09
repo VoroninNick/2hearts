@@ -173,16 +173,6 @@
       left: 0px !important;
     }
 </style>
-<script>
-$(document).ready(function() {
-    $("#show-menu-13").click(function(){
-
-    });
-
-
-});
-</script>
-<%#= params[:id] %>
 <div id="wrap-bg" style="margin-top: 65px;">
   <div id="wrap-bg-top"></div>
   <div id="content" class="container service">
@@ -195,11 +185,19 @@ $(document).ready(function() {
                 <% if c.sub_categories.present? %>
                 <%#= c.sub_category %>
                   <%# if current_url ==  services_path + '/' + c.slug + '/' + sc.slug %>
-                  <li class="catalog-li" id="show-menu-<%= c.id %>" data-service-id="<%= c.id %>" data-service-name="<%= c.slug %>"><span><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><%=  c.name %> <span id="show-<%= c.id %>">&nbsp;&nbsp;&nbsp;+</span>
-                  <ul class="sub-ul" id="">
+                  <li class="catalog-li <% if params[:category_id] == c.slug %> sub-active <% else %> <% end %>" <% if params[:category_id] == c.slug %> style="color: #cf005d;" <% else %> <% end %> id="show-menu-<%= c.id %>" data-service-id="<%= c.id %>" data-service-name="<%= c.slug %>"><span><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><%=  c.name %> <span id="show-<%= c.id %>">&nbsp;&nbsp;&nbsp;<% if params[:category_id] == c.slug %> - <% else %> + <% end %></span>
+                  <ul class="sub-ul" id="" <% if params[:category_id] == c.slug %> style="display: block;" <% else %> <% end %>>
                   <% c.sub_categories.each do |sc| %>
                   <% if current_url ==  services_path + '/' + c.slug + '/' + sc.slug %>
-                      <li class="sub-li visited-sub"><span class="sub-span"><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><%= link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug, :class => "sub-a" %><span></li>
+                      <li class="sub-li visited-sub"><span class="sub-span"><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %>
+                        <% if params[:category_id] == c.slug %>
+                         <%= sc.name %>
+                         
+                         <% else %> 
+                         <%= link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug, :class => "sub-a" %>
+                         <% end %>
+                        
+                        <span></li>
                   <% else %>
                       <li class="sub-li"><span class="sub-span"><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><%= link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug, :class => "sub-a" %><span></li>
                   <% end %>

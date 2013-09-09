@@ -182,7 +182,6 @@ $(document).ready(function() {
 
 });
 </script>
-<%#= params[:id] %>
 <div id="wrap-bg" style="margin-top: 65px;">
   <div id="wrap-bg-top"></div>
   <div id="content" class="container service">
@@ -191,13 +190,16 @@ $(document).ready(function() {
         <h1>ПОСЛУГИ</h1>
           <ul class="catalog" style="margin-top: -4px;">
             <% @render_catalog.each do |c| %>
+            <%#= c.inspect %>
               <% if c.service.present? %>
                 <% if c.sub_categories.present? %>
-                <%#= c.sub_category %>
+                <%#= c.sub_category.inspect %>
                   <%# if current_url ==  services_path + '/' + c.slug + '/' + sc.slug %>
                   <li class="catalog-li" id="show-menu-<%= c.id %>" data-service-id="<%= c.id %>" data-service-name="<%= c.slug %>"><span><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><%=  c.name %> <span id="show-<%= c.id %>">&nbsp;&nbsp;&nbsp;+</span>
                   <ul class="sub-ul" id="">
                   <% c.sub_categories.each do |sc| %>
+                  <%#= sc.inspect %>
+
                   <% if current_url ==  services_path + '/' + c.slug + '/' + sc.slug %>
                       <li class="sub-li visited-sub"><span class="sub-span"><%= image_tag('h-heart.png', :style => 'margin-right: 5px;') %><%= link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug, :class => "sub-a" %><span></li>
                   <% else %>

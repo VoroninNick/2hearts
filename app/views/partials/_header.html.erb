@@ -10,11 +10,15 @@
   <script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
   <%= javascript_include_tag "application" %>
 
   <%= stylesheet_link_tag    "application" %>
   <script type="text/javascript">
-
+  localStorage.clear();
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-29602203-1']);
   _gaq.push(['_trackPageview']);
@@ -47,6 +51,11 @@
 
 
   </script -->
+  <style type="text/css">
+    #show-17{
+      left: 0px;
+    }
+  </style>
 </head>
 <body <%= request.env['HTTP_CACHE_CONTROL'] %> data="<%= request.env['HTTP_ACCEPT_ENCODING'] %>">
 <div id="wraper-body">
