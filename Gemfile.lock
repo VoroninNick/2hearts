@@ -224,6 +224,7 @@ DEPENDENCIES
   devise
   fancybox-rails!
   jquery-rails
+  mail
   meta_request
   mysql2
   paperclip

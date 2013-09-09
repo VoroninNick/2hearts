@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'ckeditor'
 gem 'fancybox-rails', :github => 'vikewoods/fancybox-rails'
 gem 'paperclip-watermark'
+gem 'mail'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
