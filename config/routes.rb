@@ -9,6 +9,7 @@ TwoHeartsMonsterPack::Application.routes.draw do
   match '/services/:id'                   => 'services#show', :as => 'services_catalog'
   match '/services/:category_id/:id'  => 'services#get_childs', :as => 'services_sub_catalog'
   match '/sitemap'    => redirect('/sitemap/sitemap.xml'), :as => 'sitemap', :via => :get
+  match '/banner' => 'page#bannertest' # temp pasha
   # Mount CK Editor
   # TODO: Migrate db in production ?
   mount Ckeditor::Engine                              => '/ckeditor'

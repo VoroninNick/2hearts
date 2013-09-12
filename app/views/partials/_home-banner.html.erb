@@ -1,0 +1,241 @@
+<style>
+  .parallax-layer{
+    top: 900px;
+  }
+
+  /* pasha. temp for testing purposes */
+    #paralax{
+      background: lightgreen;
+    }
+  /*  #layer-1{
+      background-color: rgba(144,237,144,0.5);
+    }
+    #layer-2{
+      background-color: transparent; 
+    }
+    #layer-3{
+      background-color:   rgba(255,255,0,0.5);
+    }
+    #layer-4{
+      background-color: rgba(0,0,255,0.5);
+    }
+    #layer-5{
+      background-color:   rgba(0,128,0,0.5);
+    } */
+  /* end */
+
+  /* layers styles after animate, first init */
+
+  /*#layer-1{width: 1400px; height: 486px; z-index: 15; top: 0px;}
+  #layer-2{width: 1300px; height: 486px; z-index: 10; margin-left: -5%; top: 0px;}
+  #layer-3{width: 1470px; height: 486px; z-index: 50; left: -100px; top: 0px;}
+  #layer-4{width: 1340px; height: 486px; z-index: 30; margin-left: 5%; overflow: visible; top: 0px;}
+  #layer-5{width: 1500px; margin: 0 auto;overflow-x: visible; overflow-y: visible;}*/
+
+
+  /* before animate */
+  #layer-5{width:880px; height:486px;z-index:90;margin-left: 7%;overflow: visible;}
+  #layer-4{width:1340px; height:486px;z-index:30;margin-left: 5%;overflow: visible;}
+  #layer-3{width:1470px; height:486px;z-index:50;/*left: -100px;*/}
+  #layer-2{width:1300px; height:486px;z-index:10;margin-left: -5%;}
+  #layer-1{width:1400px; height:486px;z-index:15;}
+
+  #layer-3 img{margin-top: 30px;margin-left: -302px;}
+  #layer-1 img{margin-left: 52%;margin-top: -30px;}
+  /* end */
+  
+  /* after animate */
+  #layer-5,#layer-4,#layer-3,#layer-2,#layer-1{/*top: 0px;*/}
+  /* end */
+
+  .parallax-separator{height: 500px; position: absolute;  background: none repeat scroll 0% 0% blue;  z-index: 1000;  width: 2px;}
+  
+  #parallax-separator-1{margin-left: 149px;}
+  #parallax-separator-2{margin-left: 299px;}
+  #parallax-separator-3{margin-left: 449px;}
+  #parallax-separator-4{margin-left: 599px;}
+  #parallax-separator-5{margin-left: 749px;}
+  #parallax-separator-6{margin-left: 899px;}
+  #parallax-separator-7{margin-left: 1049px;}
+  #parallax-separator-8{margin-left: 1199px;}
+  #parallax-separator-9{margin-left: 1349px;}
+
+</style>
+
+<script>
+$(document).ready(function() {
+  $('#animate1').click(function(){
+    $("#banners").animate({
+      height: 486
+    },
+    {
+      duration: 2000,
+      easing: 'easeInOutExpo'
+    });
+  });
+
+  $('#animate2').click(function(){
+    $("#banners").animate({
+      height: 100
+    },
+    {
+      duration: 2000,
+      easing: 'easeInOutExpo'
+    });
+  });
+
+
+  $("#animate3").click(function(){
+    window.setTimeout(AnimatedFirst, 2000);
+    window.setTimeout(AnimatedSecond, 1500);
+    window.setTimeout(AnimatedThird, 1000);
+    window.setTimeout(AnimatedSublast, 4000);
+    window.setTimeout(AnimatedLast, 5000);
+  });
+
+  function PlayFirstBanner(){
+    window.setTimeout(AnimatedFirst, 2000);
+    window.setTimeout(AnimatedSecond, 1500);
+    window.setTimeout(AnimatedThird, 1000);
+    window.setTimeout(AnimatedSublast, 4000);
+    window.setTimeout(AnimatedLast, 4200);
+  }
+
+  function AnimatedFirst(){
+    $('#layer-1').animate(
+      { top: 0 },
+      { duration: 2000, easing: 'easeOutBack' }
+    );
+  }
+
+  function AnimatedSecond(){
+    $('#layer-2').animate(
+      { top: 0 },
+      { duration: 1000, easing: 'easeOutBack' }
+    );
+  }
+
+  function AnimatedThird(){
+    $('#layer-3').animate(
+      { top: 0 },
+      { duration: 1000, easing: 'linear' }
+    );
+  }
+
+  function AnimatedSublast(){
+    $('#layer-4').animate(
+      { top: 0 },
+      { duration: 1300, easing: 'easeOutBack' }
+    );
+  }
+
+  function AnimatedLast(){
+    $('#layer-5').animate(
+      { top: 0 },
+      { duration: 1500, easing: 'easeOutBack', complete: ActivateParalax }
+
+    );
+  }
+
+  function ShowParalax(){
+    $("#banners").animate({
+      height: 486
+    },
+    {
+      duration: 2000,
+      easing: 'easeInOutExpo'
+    });
+  }
+
+  function ActivateParalax(){
+    console.log('ActivateParallax()');
+    //Paralax main header banner
+    $('#paralax .parallax-layer')
+    .parallax(
+      // vik's config
+    {
+      mouseport: $('#paralax'),
+      xorigin:		1,       // 0-1 - Sets default alignment. Only has effect when parallax values are something other than 1 (or true, or '100%')
+      yorigin:		0.8,
+    }
+
+    // pasha's config
+    /*{
+      mouseport: $('#paralax'),
+      xorigin:    0.5,       // 0-1 - Sets default alignment. Only has effect when parallax values are something other than 1 (or true, or '100%')
+      yorigin:    0.8,
+      //pasha
+      xparallax:0.2,
+      yparallax:false
+    }*/
+
+    );
+
+  }
+
+
+  window.setTimeout(ShowParalax, 200);
+  window.setTimeout(PlayFirstBanner, 300);
+  //window.setTimeout( ActivateParalax, 300 );
+});
+</script>
+
+<!-- <div id="animate1" style="cursor: pointer; border: 2px red solid; position: fixed; top: 5px; left: 10px; padding: 5px;">
+  Click to animate +!
+</div>
+<div id="animate2" style="cursor: pointer; border: 2px green solid; position: fixed; top: 5px; left: 160px; padding: 5px;">
+  Click to animate -!
+</div>
+<div id="animate3" style="cursor: pointer; border: 2px blue solid; position: fixed; top: 5px; left: 300px; padding: 5px;">
+  Show elements !
+</div> -->
+
+<!-- Banner section -->
+<style type="text/css">
+  #banners{
+    clear: both;
+  }
+</style>
+
+<div id="banners" class="clearfix" style="height: 100px;">
+  <div class="clearfix parallax-viewport" id="paralax" style="width: 1500px; margin: 0 auto;overflow-x: visible; overflow-y: visible;">
+    <!--div class="parallax-layer" style="width:1280px; height:486px;z-index:90;margin-left: 7%;overflow: visible;" id="layer-5">
+      <%#= image_tag('two_hearts_4.png') %>
+    </div -->
+    <div class="parallax-separator" id="parallax-separator-1"></div>
+    <div class="parallax-separator" id="parallax-separator-2"></div>
+    <div class="parallax-separator" id="parallax-separator-3"></div>
+    <div class="parallax-separator" id="parallax-separator-4"></div>
+    <div class="parallax-separator" id="parallax-separator-5"></div>
+    <div class="parallax-separator" id="parallax-separator-6"></div>
+    <div class="parallax-separator" id="parallax-separator-7"></div>
+    <div class="parallax-separator" id="parallax-separator-8"></div>
+    <div class="parallax-separator" id="parallax-separator-9"></div>
+    
+    <div class="parallax-layer" style="" id="layer-5">
+      <%= image_tag('home-banner/two_hearts_layer_5.png') %>
+    </div>
+    <div class="parallax-layer" style="" id="layer-4">
+      <%= image_tag('home-banner/two_hearts_layer_4.png') %>
+    </div>
+    <div class="parallax-layer" style="" id="layer-3">
+      <%= image_tag('home-banner/two_hearts_layer_3.png', :style => '') %>
+    </div>
+    
+    <div class="parallax-layer" style="" id="layer-1">
+      <%= image_tag('home-banner/two_hearts_layer_1.png', :style => "") %>
+    </div>
+
+
+  </div>
+  <br class="clearfix" />
+  <div class="container small-banner">
+    <div class="row">
+      <div class="span12 txt-center">
+        <img src="<%= asset_path('small-banner.png') %>" alt="">
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /Banner section -->

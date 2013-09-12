@@ -9,4 +9,7 @@ class PageController < ApplicationController
 
   def contact
   end
+
+  def bannertest
+  end
 end

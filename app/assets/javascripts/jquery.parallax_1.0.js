@@ -14,7 +14,7 @@
 
 (function(jQuery, undefined) {
 	// Debug
-	var debug = true;
+	var debug = false;
 
 	// VAR
 	var options = {
