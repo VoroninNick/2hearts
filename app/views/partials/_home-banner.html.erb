@@ -4,9 +4,9 @@
   }
 
   /* pasha. temp for testing purposes */
-    #paralax{
+    /*#paralax{
       background: lightgreen;
-    }
+    }*/
   /*  #layer-1{
       background-color: rgba(144,237,144,0.5);
     }
@@ -48,17 +48,6 @@
   #layer-5,#layer-4,#layer-3,#layer-2,#layer-1{/*top: 0px;*/}
   /* end */
 
-  .parallax-separator{height: 500px; position: absolute;  background: none repeat scroll 0% 0% blue;  z-index: 1000;  width: 2px;}
-  
-  #parallax-separator-1{margin-left: 149px;}
-  #parallax-separator-2{margin-left: 299px;}
-  #parallax-separator-3{margin-left: 449px;}
-  #parallax-separator-4{margin-left: 599px;}
-  #parallax-separator-5{margin-left: 749px;}
-  #parallax-separator-6{margin-left: 899px;}
-  #parallax-separator-7{margin-left: 1049px;}
-  #parallax-separator-8{margin-left: 1199px;}
-  #parallax-separator-9{margin-left: 1349px;}
 
 </style>
 
@@ -148,7 +137,7 @@ $(document).ready(function() {
   }
 
   function ActivateParalax(){
-    console.log('ActivateParallax()');
+    //console.log('ActivateParallax()');
     //Paralax main header banner
     $('#paralax .parallax-layer')
     .parallax(
@@ -202,15 +191,6 @@ $(document).ready(function() {
     <!--div class="parallax-layer" style="width:1280px; height:486px;z-index:90;margin-left: 7%;overflow: visible;" id="layer-5">
       <%#= image_tag('two_hearts_4.png') %>
     </div -->
-    <div class="parallax-separator" id="parallax-separator-1"></div>
-    <div class="parallax-separator" id="parallax-separator-2"></div>
-    <div class="parallax-separator" id="parallax-separator-3"></div>
-    <div class="parallax-separator" id="parallax-separator-4"></div>
-    <div class="parallax-separator" id="parallax-separator-5"></div>
-    <div class="parallax-separator" id="parallax-separator-6"></div>
-    <div class="parallax-separator" id="parallax-separator-7"></div>
-    <div class="parallax-separator" id="parallax-separator-8"></div>
-    <div class="parallax-separator" id="parallax-separator-9"></div>
     
     <div class="parallax-layer" style="" id="layer-5">
       <%= image_tag('home-banner/two_hearts_layer_5.png') %>
