@@ -2,14 +2,14 @@ TwoHeartsMonsterPack::Application.routes.draw do
   devise_for :users
   #resources :services
   # Statics pages
-  match '/about'                                      => 'page#about'
-  match '/contact'                                                   => 'contact#new', :as => 'contact', :via => :get
-  match '/contact'                                                   => 'contact#create', :as => 'contact', :via => :post
-  match '/services'                                    => 'services#index'
-  match '/services/:id'                   => 'services#show', :as => 'services_catalog'
-  match '/services/:category_id/:id'  => 'services#get_childs', :as => 'services_sub_catalog'
-  match '/sitemap'    => redirect('/sitemap/sitemap.xml'), :as => 'sitemap', :via => :get
-  match '/banner' => 'page#bannertest' # temp pasha
+  get '/about'                                      => 'page#about'
+  get '/contact', to: 'contact#new', :as => 'contact'
+  post '/contact', to: 'contact#create', :as => 'contact_post'
+  get '/services'                                    => 'services#index'
+  get '/services/:id'                   => 'services#show', :as => 'services_catalog'
+  get '/services/:category_id/:id'  => 'services#get_childs', :as => 'services_sub_catalog'
+  get '/sitemap'    => redirect('/sitemap/sitemap.xml'), :as => 'sitemap'
+  get '/banner' => 'page#bannertest' # temp pasha
   # Mount CK Editor
   # TODO: Migrate db in production ?
   mount Ckeditor::Engine                              => '/ckeditor'
