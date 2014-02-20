@@ -26,3 +26,5 @@
 
 # Bundle
 /vendor/bundle/*
+
+/Gemfile.lock

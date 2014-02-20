@@ -1,0 +1,60 @@
+style[type="text/css"]
+  |  .contacts h1{ color: #cf005d; font-family: "Georgia", sans-serif; text-shadow: 0 1px 0 #fff; font-weight: lighter; } .contacts h2{ font-weight: lighter; } .contacts .row { margin-left: -15px; } .contacts p.phone{ font-size: 60px; line-height: 60px; text-shadow: 0 1px 0 #fff; color: #cf005d; } .contacts p.phone span.phone-name{ font-size: 50%; } .contacts p.email, .contacts p.address-line{ color: #6c6d71; font-size: 24px; line-height: 36px; } .contacts p.email a{ text-shadow: 0 1px 0 #fff; color: #cf005d; text-decoration: none; } .contacts input, textarea{ -moz-border-radius: 0 0 0 379px / 0 0 0 0; -webkit-border-radius: 0 0 0 379px / 0 0 0 0; border-radius: 0 0 0 379px / 0 0 0 0; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; background-color: rgba(217,176,98,.1); -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.3); -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.3); box-shadow: inset 0 1px 2px rgba(0,0,0,.3); color: #cf005d; font-size: 24px; font-style: italic; font-weight: lighter !important; font-family: 'Georgia', sans-serif; outline: 0; border: 0; padding-left: 10px; padding-right: 10px; } .contacts label{ color: #a2a4a9; font-family: 'Open Sans', sans-serif; font-weight: 300; font-size: 13px; padding-left: 10px; } .form p, .form textarea{ width: inherit; } .form p input{ height: 50px; width: 360px; } .form p textarea{ height: 208px; width: 753px; } #map{ -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.3); -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.3); box-shadow: inset 0 1px 2px rgba(0,0,0,.3); margin-bottom: 30px; } 
+#wrap-bg[style="margin-top: 58px;"]
+  #wrap-bg-top
+  #content.container.contacts
+    .row
+      .span12
+        h1
+          | Контакти «Двох сердець»
+      .span12[style="text-align: center; margin-top: 50px;"]
+        p.phone
+          span.phone-name
+            | моб.:
+          | +38 (067) 672-68-30
+        p.address-line.os
+          | м. Львів, вул, Січових Стрільців, 8
+        p.email.os
+          a[href="mailto:info@wed.in.ua"]
+            | info@wed.in.ua
+      .span12
+        | <img src="
+        = asset_path('h-heart.png')
+        | " alt="" class="h2-heart">
+        h2
+          | Ми на Гугл мапі
+      #map.span12[style="border: 3px solid white; border-radius: 5px;"]
+        iframe[width="100%" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.ua/maps?q=%D0%BC.+%D0%9B%D1%8C%D0%B2%D1%96%D0%B2,+%D0%B2%D1%83%D0%BB,+%D0%A1%D1%96%D1%87%D0%BE%D0%B2%D0%B8%D1%85+%D0%A1%D1%82%D1%80%D1%96%D0%BB%D1%8C%D1%86%D1%96%D0%B2,+8&amp;ie=UTF8&amp;hq=&amp;hnear=%D1%83%D0%BB.+%D0%A1%D0%B5%D1%87%D0%B5%D0%B2%D1%8B%D1%85+%D0%A1%D1%82%D1%80%D0%B5%D0%BB%D1%8C%D1%86%D0%BE%D0%B2,+8,+%D0%9B%D1%8C%D0%B2%D0%BE%D0%B2,+%D0%9B%D1%8C%D0%B2%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C&amp;gl=ua&amp;t=m&amp;z=14&amp;ll=49.840746,24.024559&amp;output=embed"]
+      .span12
+        | <img src="
+        = asset_path('h-heart.png')
+        | " alt="" class="h2-heart">
+        h2
+          | Пишіть нам
+      br[style="clear: both;"]
+      #cont-bt-wrapper
+        .branded-bt
+          .bt-start
+          .bt-center
+            a[href="#"]
+              | НАДІСЛАТИ
+          .bt-end
+    #separator-bottom.container
+      .row
+        .span1
+          |  <img src="
+          = asset_path('bottom_l.png')
+          | " alt=""> 
+        .span4.sep-line.push-down-sep
+          |  
+        .span2.txt-center.push-down-sep
+          |  <img src="
+          = asset_path('h-heart.png')
+          | " alt=""> 
+        .span4.sep-line.push-down-sep
+          |  
+        .span1.text-right
+          |  <img src="
+          = asset_path('bottom_r.png')
+          | " alt=""> 
+  #wrap-bg-bottom

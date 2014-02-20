@@ -1,0 +1,35 @@
+- if current_page?(root_path)
+
+- else
+  style[type="text/css"]
+    |  .custom-pages-bg{ background: url(<ruby code="= asset_path('top-custom-bg.jpg')"></ruby>) repeat-x; width: 100%; height: 170px; position: absolute; top: 0px; z-index: -10; } 
+  .custom-pages-bg
+    |  
+#top-bg
+#header.container
+  #head.row
+    #logo.span6
+      a[href="/"]
+        |  <img src="
+        = asset_path('logo.png')
+        | " alt=""> 
+    #nav.span6
+      ul
+        |  <li 
+        - if current_page?(about_path)
+          |  class="act-section" 
+        | > 
+      a[href="/about"]
+        | Агенція
+      |  <li 
+      - if current_page?(services_path) || controller.controller_name == 'services'
+        |  class="act-section" 
+      | > 
+      a[href="/services"]
+        | Послуги
+      |  <li 
+      - if current_page?(contact_path)
+        |  class="act-section" 
+      | > 
+      a[href="/contact"]
+        | Контакти

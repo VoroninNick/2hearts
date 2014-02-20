@@ -1,0 +1,32 @@
+doctype
+html[lang="uk-UA"]
+  head
+    meta[charset="UTF-8"]
+    title
+    meta[name="keywords" content=""]
+    meta[name="description" content=""]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"]
+    script[type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"]
+    script[src="http://code.jquery.com/jquery-migrate-1.1.1.js"]
+    script[type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"]
+    link[rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css"]
+    meta[http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"]
+    meta[http-equiv="Pragma" content="no-cache"]
+    meta[http-equiv="Expires" content="0"]
+    = javascript_include_tag "application"
+    = stylesheet_link_tag    "application"
+    script[type="text/javascript"]
+      |  localStorage.clear(); var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-29602203-1']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); 
+    meta[name="studio" content="Дизайн студія Миколи Вороніна"]
+    meta[name="art-director" content="Микола Воронін"]
+    meta[name="web-developer" content="Калантаєвській Віктор"]
+    = yield :html_head
+    = csrf_meta_tags
+    style[type="text/css"]
+      |  #show-17{ left: 0px; } 
+  |  <body 
+  = request.env['HTTP_CACHE_CONTROL']
+  |  data="
+  = request.env['HTTP_ACCEPT_ENCODING']
+  | "> 
+

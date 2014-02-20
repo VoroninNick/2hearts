@@ -1,0 +1,118 @@
+style[type="text/css"]
+  |  .service h1{ font-weight: lighter; font-family: 'Georgia', sans-serif; font-size: 42px; } .service h2{ border-bottom: 1px dashed #dcdadb; border-top: 1px dashed #dcdadb; padding-top: 10px; margin-bottom: 60px; color: #cf005d; font-family: "Georgia", sans-serif; text-shadow: 0 1px 0 #fff; font-weight: lighter; } .service p{ color: #6c6d71; font-size: 16px; line-height: 24px; } .service .row{ margin-left: -15px; } .service img.avatar{ border: 8px solid #e7e6e2; -moz-box-shadow: 0 0 7px rgba(2,2,2,.22); -webkit-box-shadow: 0 0 7px rgba(2,2,2,.22); box-shadow: 0 0 7px rgba(2,2,2,.22); } .service ul.catalog{ list-style: none; margin: 0; padding: 0; } .service ul.catalog li.catalog-li{ line-height: 35px; font-weight: lighter; color: #646464; font-family: 'Georgia', sans-serif; text-decoration: none; font-size: 18px; border-top: 1px dashed #dcdadb; padding-top: 10px; padding-bottom: 10px; overflow: hidden; cursor: pointer; } .service ul.catalog li.catalog-li span{ position: relative; left: -35px; -webkit-transition: 0.75s ease-out all; -moz-transition: 0.75s ease-out all; -ms-transition: 0.75s ease-out all; -o-transition: 0.75s ease-out all; transition: 0.75s ease-out all; cursor: pointer; } .service ul.catalog li.catalog-li:last-child{ border-bottom: 1px dashed #dcdadb; } .service ul.catalog li.catalog-li:hover span a.catalog-link{ color: #cf005d; border-bottom: 1px solid rgba(207, 0, 93, .75); } .service ul.catalog li.catalog-li:hover span, .service ul.catalog li.catalog-li.visited span{ left: 1px !important; color: #cf005d; } .service ul.catalog li.catalog-li.visited, .service ul.catalog li.catalog-li.visited span{ cursor: default; } .service ul.catalog li.catalog-li ul{ list-style: none; } .service ul.catalog li.catalog-li a, .service ul.catalog li.catalog-li a:active{ text-decoration: none; font-weight: lighter; color: #646464; -webkit-transition: 0.45s ease-out all; -moz-transition: 0.45s ease-out all; -ms-transition: 0.45s ease-out all; -o-transition: 0.45s ease-out all; transition: 0.45s ease-out all; } .service ul.catalog li.catalog-li a:hover{ color: #cf005d; border-bottom: 1px solid rgba(207, 0, 93, .75); } .service ul.catalog li.catalog-li.visited a, .service ul.catalog li.catalog-li.visited a:hover{ color: #cf005d; border-bottom: 0 !important; } blockquote em.left{ float: left; font-size: 90px; color: #cf005d; } blockquote em.right{ float: right; font-size: 40px; color: #cf005d; } blockquote{ margin-top: 50px; margin-bottom: 50px; margin-left: 0; margin-right: 25px; padding: 0; border-left: 0; text-align: right; width: 56%; float: left; } blockquote p{ color: #cf005d; font-family: 'Open Sans', sans-serif; text-shadow: 0 1px 0 #fff; font-weight: 300; font-size: 24px !important; line-height: 40px !important; } ul.sub-ul{ display: none; } ul.sub-ul li.sub-li{ line-height: 35px; font-weight: lighter; color: #646464; font-family: 'Georgia', sans-serif; text-decoration: none; font-size: 18px; border-top: 0; padding-top: 10px; padding-bottom: 10px; overflow: hidden; cursor: pointer; border-bottom: 1px dashed #dcdadb; } ul.sub-ul li:last-child{ border-bottom: 0; } .sub-active span{ left: 1px !important; } .sub-active ul.sub-ul li.sub-li span.sub-span{ left: -65px !important; } .sub-active ul.sub-ul li.sub-li:hover span.sub-span, .sub-active ul.sub-ul li.sub-li.visited-sub span.sub-span{ left: -30px !important; color: #cf005d; } #show-13, #show-16{ left: 0px !important; } 
+script
+  |  $(document).ready(function() { $("#show-menu-13").click(function(){ }); }); 
+#wrap-bg[style="margin-top: 65px;"]
+  #wrap-bg-top
+  #content.container.service
+    .row
+      .span4
+        h1
+          | ПОСЛУГИ
+        ul.catalog[style="margin-top: -4px;"]
+          - @render_catalog.each do |c|
+            - #= c.inspect
+            - if c.service.present?
+              - if c.sub_categories.present?
+                - #= c.sub_category.inspect
+                - # if current_url ==  services_path + '/' + c.slug + '/' + sc.slug
+                |  <li class="catalog-li" id="show-menu-
+                = c.id
+                | " data-service-id="
+                = c.id
+                | " data-service-name="
+                = c.slug
+                | ">
+                span
+                  = image_tag('h-heart.png', :style => 'margin-right: 5px;')
+                  =  c.name
+                  |  <span id="show-
+                  = c.id
+                  | ">   +
+                ul#.sub-ul
+                  - c.sub_categories.each do |sc|
+                    - #= sc.inspect
+                    - if current_url ==  services_path + '/' + c.slug + '/' + sc.slug
+                      li.sub-li.visited-sub
+                        span.sub-span
+                          = image_tag('h-heart.png', :style => 'margin-right: 5px;')
+                          = link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug, :class => "sub-a"
+                          span
+                    - else
+                      li.sub-li
+                        span.sub-span
+                          = image_tag('h-heart.png', :style => 'margin-right: 5px;')
+                          = link_to sc.name, services_path + '/' + c.slug + '/' + sc.slug, :class => "sub-a"
+                          span
+                  - # else
+                  - # end
+              - else
+                - # if we have an sub category service ends here
+                - if current_url ==  services_path + '/' + c.service.slug
+                  li.catalog-li.visited
+                    span
+                      = image_tag('h-heart.png', :style => 'margin-right: 5px;')
+                      = c.name
+                - else
+                  li.catalog-li
+                    span
+                      = image_tag('h-heart.png', :style => 'margin-right: 5px;')
+                      = link_to c.name, services_path + '/' + c.service.slug, :class => "catalog-link"
+            - else
+              - if c.sub_categories.present?
+                li.catalog-li
+                  span
+                    = image_tag('h-heart.png', :style => 'margin-right: 5px;')
+                    = c.name
+                    | <span id="show-
+                    = c.id
+                    | ">   +
+                  - c.sub_categories.each do |sc|
+                    ul[style="display: none;"]
+                      li
+                        span
+                          = image_tag('h-heart.png', :style => 'margin-right: 5px;')
+                          = sc.name
+              - else
+                li.catalog-li
+                  span
+                    = image_tag('h-heart.png', :style => 'margin-right: 5px;')
+                    = c.name
+      .span8[style="margin-top: 108px;"]
+        h2
+          = @service.name
+        - if @service.avatar.present?
+          = image_tag(@service.avatar.url(:main), :style => "margin-bottom: 50px;", :class => 'avatar')
+        .os_safe
+          = @service.description.html_safe
+        - if @service.assets.present?
+          style[type="text/css"]
+            |  .gallery-wrapper-item img{ margin-right: 10px; float: left; width: 180px; } 
+          script[type="text/javascript"]
+            |  $(document).ready(function() { $("a.fancybox").fancybox(); }); 
+          .gallery-wrapper-item
+            - if @service.assets.present?
+              h2[style="margin-bottom: 20px; margin-top: 60px;"]
+                | Галерея
+              - @service.assets.each do |a|
+                - if a.attachment_file_name != nil
+                  = link_to(image_tag(a.attachment.url(:small), :style => 'margin-bottom: 10px;'), a.attachment.url(:original), :class => 'fancybox', :rel => 'gallery')
+    #separator-bottom.container.padding
+      .row
+        .span1
+          |  <img src="
+          = asset_path('bottom_l.png')
+          | " alt=""> 
+        .span4.sep-line.push-down-sep
+          |  
+        .span2.txt-center.push-down-sep
+          |  <img src="
+          = asset_path('h-heart.png')
+          | " alt=""> 
+        .span4.sep-line.push-down-sep
+          |  
+        .span1.text-right
+          |  <img src="
+          = asset_path('bottom_r.png')
+          | " alt=""> 
+  #wrap-bg-bottom

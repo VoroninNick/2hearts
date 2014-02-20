@@ -1,0 +1,30 @@
+style
+  |  .jquery_form_error_message{ color: rgb(208, 0, 93); font-family: 'Open Sans', sans-serif; font-weight: 300; font-style: italic; font-size: 12px; padding-left: 0px; display: block; float: right; margin-top: 0px; } label{ font-size: 12px !important; } input.submit{ -moz-border-radius: 0 0 0 0 / 0 0 0 0; -webkit-border-radius: 0 0 0 0 / 0 0 0 0; border-radius: 0 0 0 0 / 0 0 0 0; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; background-color: rgba(0,0,0,0); -moz-box-shadow: inset 0 0 0 rgba(0,0,0,0); -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0); box-shadow: inset 0 0 0 rgba(0,0,0,0); color: #ffffff; font-size: 24px; font-style: italic; font-weight: lighter !important; font-family: 'Georgia', sans-serif; outline: 0; border: 0; margin-top: 14px; } 
+= form_for @contact, :url => contact_path, :html => { :id => 'contact_us' } do |f|
+  .span5.form
+    p
+      = f.text_field :name, :placeholder => 'Микола Воронін', :data => { :validation => 'validate_min_length length2', 'validation-help' => ' ', 'validation-error-msg' => 'Введіть будь-ласка Ваше імя!' }
+      label[for="name"]
+        | Ваше ім’я
+    p
+      = f.text_field :phone, :placeholder => '+38 067 675 81 18', :data => { :validation => 'validate_phone', 'validation-help' => ' ', 'validation-error-msg' => 'Введіть будь-ласка Ваш номер телефону!' }
+      label[for="email"]
+        | Ваш контактний телефон
+    p
+      = f.text_field :email, :placeholder => 'voronin.nick@gmail.com', :style => '', :data => { :validation => 'validate_email', 'validation-help' => ' ', 'validation-error-msg' => 'Введіть будь-ласка Вашу поштову скриньку!' }
+      label[for="phone"]
+        | Ваша ел. скринька
+  .span7.form
+    p
+      = f.text_area :body, :placeholder => 'У своїй роботі ми застосовуємо сучасне обладнання та високоякісні матеріали. Прогресивні методи виробництва та висока кваліфікація наших працівників дозволяють добиватися найвищих експлуатаційних характеристик всіх видів продукції підприємства.', :data => { :validation => 'required', 'validation-help' => ' ', 'validation-error-msg' => 'Введіть будь-ласка Ваше повідомлення!' }
+      label[for="body"]
+        | Ваше повідомлення
+  br[style="clear: both;"]
+  #cont-bt-wrapper
+    .branded-bt
+      .bt-start
+      .bt-center
+        = f.submit 'НАДІСЛАТИ', :class => 'submit'
+      .bt-end
+script[type="text/javascript" charset="utf-8"]
+  |  var validationSettings = { errorMessagePosition : 'element', borderColorOnError : '' }; $('form') .submit(function() { if ($(this).validate(false, validationSettings)){ //alert('Valid!'); //$("#new_order").submit(); return true; } return false; }).validateOnBlur(false, validationSettings).showHelpOnFocus(); 

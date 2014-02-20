@@ -41,3 +41,6 @@ gem 'slim-rails'
 gem 'truncate_html'
 
 gem 'sitemap_generator'
+
+
+gem 'html2slim'

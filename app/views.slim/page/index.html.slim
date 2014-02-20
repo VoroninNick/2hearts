@@ -1,0 +1,133 @@
+= render :partial => 'partials/home-banner'
+#wrap-bg.clearfix
+  #wrap-bg-top
+  #content.container
+    #proverbs.padding
+      .row
+        .span4.proverbs-folding
+          h2
+            | <img src="
+            = asset_path('h-heart.png')
+            | " alt="" class="h2-heart">
+            = find_text(1).name
+          p.info-text.os
+            = find_text(1).descr
+        .span4.proverbs-folding
+          h2
+            | <img src="
+            = asset_path('h-heart.png')
+            | " alt="" class="h2-heart">
+            = find_text(2).name
+          p.info-text.os
+            = find_text(2).descr
+        .span4.proverbs-folding
+          h2
+            | <img src="
+            = asset_path('h-heart.png')
+            | " alt="" class="h2-heart">
+            = find_text(3).name
+          p.info-text.os
+            = find_text(3).descr
+    #video.padding
+      .row
+        .span7
+          |  <iframe class="main-video-frame" src="http://player.vimeo.com/video/
+          = main_video.video_id
+          | ?title=0&byline=0&portrait=0&color=ff0179" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+        .span5.video-info-block.video-text-folding
+          h1
+            = find_text(4).name
+          p.video-text.os
+            = find_text(4).descr
+          p.video-text.os
+            i
+              = find_text(5).descr
+    #separator-top.container.padding
+      .row
+        .span1.sep-left-flower
+          |  <img src="
+          = asset_path('sep-l.png')
+          | " alt=""> 
+        .span4.sep-line
+          |  
+        .span2.txt-center.sep-center-img
+          |  <img src="
+          = asset_path('h-heart.png')
+          | " alt="">
+          h2
+            | Наші роботи
+        .span4.sep-line
+          |  
+        .span1.text-right.sep-left-flower
+          |  <img src="
+          = asset_path('sep-r.png')
+          | " alt=""> 
+    #video-section.container.padding
+      .row
+        - home_video.each do |hv|
+          .span3.make-full-width
+            h3
+              = hv.name
+            - if hv.vimeo == true
+              .video-section-frame
+                |  <iframe src="http://player.vimeo.com/video/
+                = hv.video_id
+                | ?title=0&byline=0&portrait=0&color=ff0179" width="270" height="152" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+            - elsif hv.youtube == true
+
+            p
+              = hv.descr
+    #separator-top.container.padding
+      .row
+        .span1.sep-left-flower
+          |  <img src="
+          = asset_path('sep-l.png')
+          | " alt=""> 
+        .span4.sep-line
+          |  
+        .span2.txt-center.sep-center-img
+          |  <img src="
+          = asset_path('h-heart.png')
+          | " alt="">
+          h2
+            | Відгуки про нас
+        .span4.sep-line
+          |  
+        .span1.text-right.sep-left-flower
+          |  <img src="
+          = asset_path('sep-r.png')
+          | " alt=""> 
+    #wedding-feedback.container.padding
+      .row
+        - @feedback.each do |f|
+          |  <div class="span6 wedding-feedback-container" style="
+          = cycle('', '', 'margin-top:10px;', 'margin-top:10px;')
+          | "> 
+          .feedback-img-sign
+            = image_tag(f.avatar.url(:thumb), :alt => f.name, :class => 'feedback-img')
+          h2[style="line-height: 26px;"]
+            = f.name
+          p
+            i
+              = truncate(f.descr, :length => 200, :omission => '...')
+          p.author
+            = f.customer_name
+  #separator-bottom.container.padding
+    .row
+      .span1
+        |  <img src="
+        = asset_path('bottom_l.png')
+        | " alt=""> 
+      .span4.sep-line.push-down-sep
+        |  
+      .span2.txt-center.push-down-sep
+        |  <img src="
+        = asset_path('h-heart.png')
+        | " alt=""> 
+      .span4.sep-line.push-down-sep
+        |  
+      .span1.text-right
+        |  <img src="
+        = asset_path('bottom_r.png')
+        | " alt=""> 
+#wrap-bg-bottom
